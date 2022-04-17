@@ -1,1 +1,1 @@
-﻿# pet-finder app
+﻿# Pet-finder app
