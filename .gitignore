@@ -1,0 +1,7 @@
+# dependencies
+
+/FE/node_modules
+/BE/node_modules
+
+# other
+.env
