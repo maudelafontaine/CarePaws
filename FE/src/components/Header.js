@@ -37,7 +37,7 @@ const Header = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   height: 120px;
 `;

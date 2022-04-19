@@ -9,6 +9,8 @@ import Header from "./Header";
 import Homepage from "./Homepage";
 import Login from "./Login";
 import Logout from "./Logout";
+import PetDetails from "./PetDetails";
+import Pets from "./Pets";
 import SignUp from "./SignUp";
 
 const App = () => {
@@ -25,6 +27,8 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="favorites" element={<Favorites />} />
+            <Route path="/petlisting" element={<Pets />} />
+            <Route path="/pet" element={<PetDetails />} />
           </Routes>
         </Main>
         <Footer />
@@ -41,7 +45,7 @@ const Wrapper = styled.div`
 
 const Main = styled.div`
   /* background-color: yellow; */
-  border: 2px solid black;
+  /* border: 2px solid black; */
   height: 900px;
   background-color: white;
 `;
