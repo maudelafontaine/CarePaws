@@ -1,0 +1,14 @@
+[ 
+    {
+      "id": "01",
+      "name": "Leo",
+      "friends": ["02", "03"],
+      "avatarUrl": "/images"
+    }, {
+        "id": "15",
+        "name": "Kokko",
+        "friends": ["05", "12"],
+        "avatarUrl": "/images"
+      }
+    ]
+    
