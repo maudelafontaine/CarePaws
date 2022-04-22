@@ -4,7 +4,6 @@ const express = require("express");
 // const { appendFile } = require("fs");
 const morgan = require("morgan");
 const { getPets } = require("./handlers");
-const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const PORT = 8001;
 
@@ -25,14 +24,6 @@ app.use(express.static("./server/assets"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/", express.static(__dirname + "/"));
-// app.use(
-//   "/api",
-//   createProxyMiddleware({
-//     target: "http://localhost:8001",
-//     changeOrigin: true,
-//   })
-// );
-// app.listen(3000);
 
 // Endpoints
 app.get("/pets", getPets);
