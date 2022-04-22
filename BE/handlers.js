@@ -11,19 +11,22 @@ const options = {
 };
 
 // Connect to MongoDB
-const connectToMongo = async () => {
-  const client = await new MongoClient(MONGO_URI, options);
-  await client.connect();
-  const db = client.db("PetFinder");
-  return { client, db };
-};
+// const connectToMongo = async () => {
+//   const client = await new MongoClient(MONGO_URI, options);
+//   await client.connect();
+//   const db = client.db("PetFinder");
+//   return { client, db };
+// };
 
 // GET all pets
 
 const getPets = async (req, res) => {
-  const { client, db } = connectToMongo();
+  const client = new MongoClient(MONGO_URI, options);
   try {
+    await client.connect();
+    const db = client.db("PetFinder");
     const result = await db.collection("pets").find().toArray();
+    console.log(result);
     res.status(200).json({
       status: 200,
       message: "Success!",

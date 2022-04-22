@@ -1,8 +1,8 @@
 # dependencies
 .env
 
-/FE/node_modules
-/BE/node_modules
+/node_modules
+# /BE/node_modules
 
 .env
 
