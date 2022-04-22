@@ -3,6 +3,7 @@ import React from "react";
 export const AppContext = React.createContext(null);
 
 export const AppProvider = ({ children }) => {
+  // States :
   // Sign in/ Log in form states
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
@@ -11,8 +12,10 @@ export const AppProvider = ({ children }) => {
   const [postalCode, setPostalCode] = React.useState("");
   const [password, setPassword] = React.useState();
 
-  //
+  // Pets
   const [pets, setPets] = React.useState([]);
+  const [cats, setCats] = React.useState([]);
+  const [dogs, setDogs] = React.useState([]);
 
   return (
     <AppContext.Provider
@@ -31,6 +34,10 @@ export const AppProvider = ({ children }) => {
         setPassword,
         pets,
         setPets,
+        cats,
+        setCats,
+        dogs,
+        setDogs,
       }}
     >
       {children}

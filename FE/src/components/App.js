@@ -9,11 +9,10 @@ import Header from "./Header";
 import Homepage from "./Homepage";
 import Login from "./Login";
 import Logout from "./Logout";
-import PetDetails from "./PetDetails";
-// import Pets from "./Pets";
 import Cats from "./Pets/Cats";
 import Dogs from "./Pets/Dogs";
 import SignUp from "./SignUp";
+import PetDetails from "./PetDetails";
 
 const App = () => {
   return (
@@ -29,10 +28,9 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="favorites" element={<Favorites />} />
-            {/* <Route path="/petlisting" element={<Pets />} /> */}
-            <Route path="/pet" element={<PetDetails />} />
-            <Route path="/type/cats" element={<Cats />} />
-            <Route path="/type/dogs" element={<Dogs />} />
+            <Route path="/pet/:_id" element={<PetDetails />} />
+            <Route path="/pets/cats" element={<Cats />} />
+            <Route path="/pets/dogs" element={<Dogs />} />
           </Routes>
         </Main>
         <Footer />
@@ -50,6 +48,6 @@ const Wrapper = styled.div`
 const Main = styled.div`
   /* background-color: yellow; */
   /* border: 2px solid black; */
-  height: 900px;
+  /* height: 900px; */
   background-color: white;
 `;

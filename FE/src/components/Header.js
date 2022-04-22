@@ -47,7 +47,7 @@ const Link = styled(NavLink)`
 `;
 
 const Logo = styled.h1`
-  font-size: 40px;
+  font-size: 45px;
   padding: 10px;
 `;
 
