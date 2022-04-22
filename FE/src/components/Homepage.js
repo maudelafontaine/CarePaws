@@ -1,16 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { AppContext } from "./Context";
 
 const Homepage = () => {
-  const [animals, setAnimals] = React.useState([]);
+  // const [animals, setAnimals] = React.useState([]);
+
+  const { pets, setPets } = React.useContext(AppContext);
 
   React.useEffect(() => {
     const findPets = async () => {
       const res = await fetch("/pets");
       const data = await res.json();
       console.log(data);
-      setAnimals(data.data);
-      // console.log(data.data);
+      setPets(data.data);
     };
     findPets();
   }, []);

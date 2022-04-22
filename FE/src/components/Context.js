@@ -11,6 +11,9 @@ export const AppProvider = ({ children }) => {
   const [postalCode, setPostalCode] = React.useState("");
   const [password, setPassword] = React.useState();
 
+  //
+  const [pets, setPets] = React.useState([]);
+
   return (
     <AppContext.Provider
       value={{
@@ -26,6 +29,8 @@ export const AppProvider = ({ children }) => {
         setPostalCode,
         password,
         setPassword,
+        pets,
+        setPets,
       }}
     >
       {children}

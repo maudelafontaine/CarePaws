@@ -10,7 +10,9 @@ import Homepage from "./Homepage";
 import Login from "./Login";
 import Logout from "./Logout";
 import PetDetails from "./PetDetails";
-import Pets from "./Pets";
+// import Pets from "./Pets";
+import Cats from "./Pets/Cats";
+import Dogs from "./Pets/Dogs";
 import SignUp from "./SignUp";
 
 const App = () => {
@@ -27,8 +29,10 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="favorites" element={<Favorites />} />
-            <Route path="/petlisting" element={<Pets />} />
+            {/* <Route path="/petlisting" element={<Pets />} /> */}
             <Route path="/pet" element={<PetDetails />} />
+            <Route path="/type/cats" element={<Cats />} />
+            <Route path="/type/dogs" element={<Dogs />} />
           </Routes>
         </Main>
         <Footer />
