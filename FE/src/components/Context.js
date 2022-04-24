@@ -13,7 +13,7 @@ export const AppProvider = ({ children }) => {
   const [password, setPassword] = React.useState();
 
   // Pets
-  const [pets, setPets] = React.useState([]);
+  // const [pets, setPets] = React.useState([]);
   const [cats, setCats] = React.useState([]);
   const [dogs, setDogs] = React.useState([]);
 
@@ -32,8 +32,8 @@ export const AppProvider = ({ children }) => {
         setPostalCode,
         password,
         setPassword,
-        pets,
-        setPets,
+        // pets,
+        // setPets,
         cats,
         setCats,
         dogs,

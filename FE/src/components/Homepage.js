@@ -1,30 +1,31 @@
 import React from "react";
 import styled from "styled-components";
-import { AppContext } from "./Context";
 import { NavLink } from "react-router-dom";
 import Loader from "./Loader";
+import { useEffect, useState } from "react";
 
 const Homepage = () => {
-  const { pets, setPets } = React.useContext(AppContext);
-  const [status, setStatus] = React.useState("loading");
+  const [pets, setPets] = useState([]);
+  const [isLoading, setIsLoading] = React.useState(true);
 
-  React.useEffect(() => {
+  // get all pets
+  useEffect(() => {
     const findPets = async () => {
       const res = await fetch("/pets");
       const data = await res.json();
       console.log(data.data);
       setPets(data.data);
+      setIsLoading(false);
     };
     findPets();
   }, []);
 
-  // if (!pets) {
-  //   return <Loader />;
-  // }
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <Container>
-      {/* <Img src="/images/Snow.jpg" /> */}
       <TextContainer>
         <Text>Find your new bestfriend</Text>
       </TextContainer>
@@ -32,13 +33,7 @@ const Homepage = () => {
         <Type to="/pets/cats">cats</Type>
         <Type to="/pets/dogs">dogs</Type>
       </TypesContainer>
-      {/* {status === "loading" && (
-        <>
-          <Loader />;
-        </>
-      )} */}
 
-      {/* {status === "idle" && ( */}
       <PetsListContainer>
         {pets.map((p) => (
           <Pet key={p._id}>
@@ -52,7 +47,6 @@ const Homepage = () => {
           </Pet>
         ))}
       </PetsListContainer>
-      {/* )} */}
     </Container>
   );
 };

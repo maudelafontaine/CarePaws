@@ -12,7 +12,8 @@ import Logout from "./Logout";
 import Cats from "./Pets/Cats";
 import Dogs from "./Pets/Dogs";
 import SignUp from "./SignUp";
-import PetDetails from "./PetDetails";
+import PetDetails from "./Pets/PetDetails";
+import Pets from "./Pets/Pets";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="/logout" element={<Logout />} />
             <Route path="favorites" element={<Favorites />} />
             <Route path="/pet/:_id" element={<PetDetails />} />
+            <Route path="pets/:type" element={<Pets />} />
             <Route path="/pets/cats" element={<Cats />} />
             <Route path="/pets/dogs" element={<Dogs />} />
           </Routes>
