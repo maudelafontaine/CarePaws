@@ -17,6 +17,8 @@ export const AppProvider = ({ children }) => {
   const [cats, setCats] = React.useState([]);
   const [dogs, setDogs] = React.useState([]);
 
+  // Comments section
+  const [comments, setComments] = React.useState("");
   return (
     <AppContext.Provider
       value={{
@@ -38,6 +40,8 @@ export const AppProvider = ({ children }) => {
         setCats,
         dogs,
         setDogs,
+        comments,
+        setComments,
       }}
     >
       {children}

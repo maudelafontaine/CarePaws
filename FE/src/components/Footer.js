@@ -4,8 +4,9 @@ import styled from "styled-components";
 const Footer = () => {
   return (
     <Container>
-      <Logo>Made By</Logo>
-      <Text>@MaudeLafontaine</Text>
+      <Logo></Logo>
+      <Text>Find out more about Pets Happy Tails</Text>
+      <Text>Made by @MaudeLafontaine</Text>
     </Container>
   );
 };
@@ -19,6 +20,8 @@ const Container = styled.div`
 
 const Logo = styled.h1``;
 
-const Text = styled.h2``;
+const Text = styled.h2`
+  padding: 20px;
+`;
 
 export default Footer;

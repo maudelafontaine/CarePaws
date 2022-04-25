@@ -57,6 +57,7 @@ const Container = styled.div`
 const Text = styled.h1`
   color: black;
   font-size: 25px;
+  padding: 30px;
 `;
 
 const DogsListContainer = styled.div`

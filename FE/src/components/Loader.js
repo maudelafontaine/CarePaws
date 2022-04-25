@@ -18,7 +18,7 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 700px;
+  height: 1200px;
 `;
 
 const Spinner = styled.div`

@@ -59,6 +59,7 @@ const Container = styled.div`
 const Text = styled.h1`
   color: black;
   font-size: 25px;
+  padding: 30px;
 `;
 
 const CatsListContainer = styled.div`
@@ -79,13 +80,15 @@ const CatContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: white;
-  height: 90%;
-  width: 90%;
+  height: 400px;
+  width: 400px;
+  /* width: 90%; */
 `;
 
 const Picture = styled.img`
-  height: 60%;
-  width: 60%;
+  height: 70%;
+  width: 70%;
+
   /* height: 350px;
   width: 350px; */
   border-radius: 2px;

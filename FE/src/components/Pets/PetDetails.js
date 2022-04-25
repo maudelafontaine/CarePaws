@@ -8,6 +8,7 @@ import Loader from "../Loader";
 import { FiHeart } from "react-icons/fi";
 import { GoLocation } from "react-icons/go";
 import { AiOutlineMail } from "react-icons/ai";
+import CommentsSection from "../Comments/CommentsSection";
 
 // app.get("/pet/:_id", getPetById);
 
@@ -33,11 +34,11 @@ const PetDetails = () => {
   }
 
   return (
-    <Container>
+    <Container key={pet._id}>
       <PictureContainer>
         <Picture src={pet.picture} />
         <Data style={{ fontSize: "28px" }}>{pet.name}</Data>
-        <Data>The {pet.breed} cat</Data>
+        <Data>The {pet.breed}</Data>
       </PictureContainer>
       <PetInfoContainer>
         <PetContainer>
@@ -92,6 +93,7 @@ const PetDetails = () => {
           </OrganizationContainer>
         </Wrapper>
       </PetInfoContainer>
+      <CommentsSection />
     </Container>
   );
 };
@@ -120,7 +122,7 @@ const Picture = styled.img`
   width: 14%;
   border-radius: 5px;
   padding: 10px;
-  border: 4px solid black;
+  /* border: 4px solid black; */
 `;
 
 const PetInfoContainer = styled.div`

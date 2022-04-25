@@ -16,6 +16,9 @@ const Homepage = () => {
     <Container>
       <TextContainer>
         <Text>Find your new bestfriend</Text>
+        <Text style={{ fontSize: "22px", padding: "20px" }}>
+          Browse pets from our Montreal network of shelters and rescues.
+        </Text>
       </TextContainer>
       <TypesContainer>
         <Type to="/pets/type/cat">Cats</Type>
@@ -39,11 +42,11 @@ const Container = styled.div`
 
 const TextContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: white;
-  height: 8%;
+  height: 10%;
   width: 100%;
 `;
 
