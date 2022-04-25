@@ -30,9 +30,9 @@ const App = () => {
             <Route path="/logout" element={<Logout />} />
             <Route path="favorites" element={<Favorites />} />
             <Route path="/pet/:_id" element={<PetDetails />} />
-            <Route path="pets/:type" element={<Pets />} />
-            <Route path="/pets/cats" element={<Cats />} />
-            <Route path="/pets/dogs" element={<Dogs />} />
+            <Route path="/pets" element={<Pets />} />
+            <Route path="/pets/type/cat" element={<Cats />} />
+            <Route path="/pets/type/dog" element={<Dogs />} />
           </Routes>
         </Main>
         <Footer />

@@ -2,25 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Loader from "./Loader";
-import { useEffect, useState } from "react";
+import { FaPaw } from "react-icons/fa";
+// import { useEffect, useState } from "react";
 
 const Homepage = () => {
-  const [pets, setPets] = useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
-  // get all pets
-  useEffect(() => {
-    const findPets = async () => {
-      const res = await fetch("/pets");
-      const data = await res.json();
-      console.log(data.data);
-      setPets(data.data);
-      setIsLoading(false);
-    };
-    findPets();
-  }, []);
-
-  if (isLoading) {
+  if (!isLoading) {
     return <Loader />;
   }
 
@@ -30,23 +18,12 @@ const Homepage = () => {
         <Text>Find your new bestfriend</Text>
       </TextContainer>
       <TypesContainer>
-        <Type to="/pets/cats">cats</Type>
-        <Type to="/pets/dogs">dogs</Type>
+        <Type to="/pets/type/cat">Cats</Type>
+        <Type to="/pets/type/dog">Dogs</Type>
+        <Type to="/pets">
+          <FaPaw size={30} /> All Pets
+        </Type>
       </TypesContainer>
-
-      <PetsListContainer>
-        {pets.map((p) => (
-          <Pet key={p._id}>
-            <NavigationLink to={`/pet/${p._id}`}>
-              <PetContainer>
-                <Picture src={p.picture} />
-                <Name>{p.name}</Name>
-                <Breed>{p.breed}</Breed>
-              </PetContainer>
-            </NavigationLink>
-          </Pet>
-        ))}
-      </PetsListContainer>
     </Container>
   );
 };
@@ -57,8 +34,9 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 1000px;
 `;
+
 const TextContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -97,60 +75,4 @@ const Type = styled(NavLink)`
   }
 `;
 
-const PetsListContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-`;
-
-const Pet = styled.div``;
-
-const NavigationLink = styled(NavLink)`
-  text-decoration: none;
-`;
-
-const PetContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  height: 90%;
-  width: 90%;
-`;
-
-const Picture = styled.img`
-  height: 60%;
-  width: 60%;
-  /* height: 350px;
-  width: 350px; */
-  border-radius: 2px;
-  margin-bottom: 20px;
-  align-self: center;
-  border: 3px solid #ffe6e6;
-
-  &:hover {
-    transform: scale(1.2);
-    cursor: pointer;
-  }
-`;
-
-const Name = styled.h1`
-  color: black;
-  font-size: 18px;
-  margin-bottom: 8px;
-  margin-top: 15px;
-`;
-
-const Breed = styled.h2`
-  color: black;
-  font-size: 18px;
-  font-weight: normal;
-`;
-
-// white cat hardcoded img
-// const Img = styled.img`
-//   width: 20%;
-//   height: 20%;
-// `;
 export default Homepage;
