@@ -29,14 +29,9 @@ const Pets = () => {
 
   return (
     <Container>
-      {/* <TextContainer>
-        <Text>Find your new bestfriend</Text>
+      <TextContainer>
+        <Text>Find the perfect companion</Text>
       </TextContainer>
-      <TypesContainer>
-        <Type to="/pets/type/cat">Cats</Type>
-        <Type to="/pets/type/dog">Dogs</Type>
-        <Type to="/pets">All Pets</Type>
-      </TypesContainer> */}
       <PetsListContainer>
         {pets.map((p) => (
           <Pet key={p._id}>
@@ -55,50 +50,33 @@ const Pets = () => {
 };
 
 const Container = styled.div`
-  background-color: #ffe6f2;
+  background-color: var(--grey);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   height: 100%;
 `;
-// const TextContainer = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: white;
-//   height: 8%;
-//   width: 100%;
-// `;
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  /* width: 100%; */
+  padding: 20px;
+  height: 50px;
+`;
 
-// const Text = styled.h2`
-//   color: black;
-//   font-size: 32px;
-//   height: 60px;
-//   padding: 10px;
-// `;
-
-// const TypesContainer = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   justify-content: center;
-// `;
-
-// const Type = styled(NavLink)`
-//   background-color: black;
-//   color: white;
-//   font-size: 30px;
-//   text-decoration: none;
-//   padding: 20px;
-//   margin: 30px;
-//   /* height: 100px; */
-
-//   &:hover {
-//     cursor: pointer;
-//   }
-// `;
+const Text = styled.h2`
+  color: black;
+  font-size: 26px;
+  height: 60px;
+  padding: 10px;
+  text-decoration: underline;
+  text-decoration-color: var(--green);
+  text-decoration-thickness: 4px;
+`;
 
 const PetsListContainer = styled.div`
   display: grid;
@@ -121,17 +99,16 @@ const PetContainer = styled.div`
   background-color: white;
   height: 90%;
   width: 90%;
+  border-radius: 4px;
 `;
 
 const Picture = styled.img`
   height: 60%;
   width: 60%;
-  /* height: 350px;
-  width: 350px; */
   border-radius: 2px;
   margin-bottom: 20px;
   align-self: center;
-  border: 3px solid #ffe6e6;
+  /* border: 3px solid #ffe6e6; */
 
   &:hover {
     transform: scale(1.2);

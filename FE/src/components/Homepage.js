@@ -55,7 +55,7 @@ const Container = styled.div`
 `;
 
 const Bg = styled.img`
-  /* margin-top: 50px; */
+  margin-top: 30px;
   width: 50%;
   height: 50%;
 `;

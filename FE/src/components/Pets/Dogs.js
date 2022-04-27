@@ -1,22 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import Loader from "../Loader";
+import { AppContext } from "../Context";
 
 const Dogs = () => {
-  const [pets, setPets] = useState([]);
-
-  // get all pets
-  useEffect(() => {
-    const getPets = async () => {
-      const res = await fetch("/pets");
-      const data = await res.json();
-      setPets(data.data);
-    };
-    getPets();
-  }, []);
+  // get all pets from Context
+  const { pets } = useContext(AppContext);
 
   // filter pets by dog type
   const dogs = pets.filter((pet) => {
@@ -28,7 +20,7 @@ const Dogs = () => {
   }
   return (
     <Container>
-      <Text>Adopt a dog</Text>
+      <Text>Find the perfect companion</Text>
       <DogsListContainer>
         {dogs.map((d) => (
           <Dog key={d._id}>
@@ -47,7 +39,7 @@ const Dogs = () => {
 };
 
 const Container = styled.div`
-  background-color: #ffe6f2;
+  background-color: var(--grey);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,7 +49,7 @@ const Container = styled.div`
 
 const Text = styled.h1`
   color: black;
-  font-size: 25px;
+  font-size: 26px;
   padding: 30px;
 `;
 
@@ -81,20 +73,19 @@ const DogContainer = styled.div`
   background-color: white;
   height: 90%;
   width: 90%;
+  border-radius: 4px;
 `;
 
 const Picture = styled.img`
   height: 60%;
   width: 60%;
-  /* height: 350px;
-  width: 350px; */
   border-radius: 2px;
   margin-bottom: 20px;
   align-self: center;
-  border: 3px solid #ffe6e6;
+  /* border: 3px solid #ffe6e6; */
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     cursor: pointer;
   }
 `;

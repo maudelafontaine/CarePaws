@@ -77,7 +77,7 @@ const PetDetails = () => {
             <Btn>Start your inquiry</Btn>
             <Btn>Read FAQS</Btn>
             <Btn>
-              <FiHeart size={20} /> favorites
+              <FiHeart size={20} /> FAVORITE
             </Btn>
           </AdoptContainer>
           <OrganizationContainer>
@@ -99,7 +99,7 @@ const PetDetails = () => {
 };
 
 const Container = styled.div`
-  background-color: #ffe6f2;
+  background-color: var(--grey);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -113,8 +113,11 @@ const PictureContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 30%;
+  width: 60%;
   margin: 20px;
   background-color: white;
+  border-right: 6px solid var(--green);
+  border-left: 6px solid var(--green);
 `;
 
 const Picture = styled.img`
@@ -122,7 +125,6 @@ const Picture = styled.img`
   width: 14%;
   border-radius: 5px;
   padding: 10px;
-  /* border: 4px solid black; */
 `;
 
 const PetInfoContainer = styled.div`
@@ -138,6 +140,8 @@ const PetContainer = styled.div`
   align-items: center;
   margin: 40px;
   background-color: white;
+  border: 3px solid var(--mauve);
+  margin-right: 100px;
 `;
 
 const Section = styled.h1`
@@ -154,6 +158,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-left: 100px;
 `;
 
 const AdoptContainer = styled.div`
@@ -162,6 +167,9 @@ const AdoptContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: white;
+  border: 3px solid var(--mauve);
+  width: 400px;
+  padding: 20px;
 `;
 
 const OrganizationContainer = styled.div`
@@ -171,11 +179,15 @@ const OrganizationContainer = styled.div`
   align-items: center;
   margin: 40px;
   background-color: white;
+  border: 3px solid var(--mauve);
+  width: 400px;
+  padding: 20px;
 `;
 const Data = styled.h2`
   color: black;
   padding: 10px;
   font-size: 22px;
+  font-weight: normal;
 `;
 
 const Text = styled.h2`
@@ -189,12 +201,15 @@ const Btn = styled.button`
   /* height: 30px; */
   padding: 10px;
   color: black;
-  border: 3px solid pink;
+  border: none;
+  border-radius: 4px;
+  /* border: 3px solid pink; */
   font-size: 20px;
   margin: 10px;
 
   &:hover {
     cursor: pointer;
+    background-color: var(--green);
   }
 `;
 

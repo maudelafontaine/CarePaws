@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { AppContext } from "../Context";
 
+// *** add conditional rendering : if signed in -> show comment box, if not show message
+
 const Input = () => {
   //   const [comment, setComment] = useState("");
 
@@ -32,10 +34,8 @@ const Input = () => {
 };
 
 const Container = styled.div`
-  margin: 50px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
 `;
 
@@ -56,7 +56,6 @@ const SendBtn = styled.button`
   padding: 10px;
   width: 100px;
   color: black;
-  /* margin-left: 10px; */
 `;
 
 const DeleteBtn = styled.button`

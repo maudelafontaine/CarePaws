@@ -6,7 +6,7 @@ import ListingComments from "./ListingComments";
 const CommentsSection = () => {
   return (
     <Container>
-      <Title>Share you thoughts</Title>
+      <Title>Share you thoughts about this breed!</Title>
       <Wrapper>
         <Input />
         <ListingComments />
@@ -18,7 +18,7 @@ const CommentsSection = () => {
 const Container = styled.div`
   width: 100%;
   height: 800px;
-  background-color: white;
+  background-color: var(--mint);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -28,9 +28,10 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  color: pink;
+  color: black;
   padding: 20px;
   font-size: 28px;
+  padding: 40px;
 `;
 
 const Wrapper = styled.div`

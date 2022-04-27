@@ -81,10 +81,14 @@ const AccountContainer = styled.div`
 const Text = styled.h2`
   font-size: 26px;
   padding: 10px;
+
+  &:hover {
+    color: var(--mint);
+  }
 `;
 
 const Line = styled.div`
-  border-left: 3px solid var(--green);
+  border-left: 2px solid grey;
   height: 108px;
   padding: 6px;
 `;
