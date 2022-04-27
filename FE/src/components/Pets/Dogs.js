@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
+
 import Loader from "../Loader";
 
 const Dogs = () => {

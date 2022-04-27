@@ -14,17 +14,31 @@ const Homepage = () => {
 
   return (
     <Container>
+      <Bg src="/images/bg.jpg" />
       <TextContainer>
         <Text>Find your new bestfriend</Text>
         <Text style={{ fontSize: "22px", padding: "20px" }}>
-          Browse pets from our Montreal network of shelters and rescues.
+          Select a category to get started.
         </Text>
       </TextContainer>
       <TypesContainer>
-        <Type to="/pets/type/cat">Cats</Type>
-        <Type to="/pets/type/dog">Dogs</Type>
-        <Type to="/pets">
-          <FaPaw size={30} /> All Pets
+        <Type>
+          <TypeLink to="/pets/type/cat">
+            <Icon src="images/cat_icon.png" />
+            Cats
+          </TypeLink>
+        </Type>
+        <Type>
+          <TypeLink to="/pets/type/dog">
+            <Icon src="images/dog_icon.png" />
+            Dogs
+          </TypeLink>
+        </Type>
+        <Type>
+          <TypeLink to="/pets">
+            <Icon src="images/shelter_icon.png" />
+            All Pets
+          </TypeLink>
         </Type>
       </TypesContainer>
     </Container>
@@ -32,12 +46,18 @@ const Homepage = () => {
 };
 
 const Container = styled.div`
-  background-color: #ffe6f2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  height: 1000px;
+  height: 800px;
+  background-color: var(--grey);
+`;
+
+const Bg = styled.img`
+  /* margin-top: 50px; */
+  width: 50%;
+  height: 50%;
 `;
 
 const TextContainer = styled.div`
@@ -45,15 +65,15 @@ const TextContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  height: 10%;
+  background-color: var(--green);
+  height: 150px;
   width: 100%;
+  margin-top: -50px;
 `;
 
 const Text = styled.h2`
   color: black;
   font-size: 32px;
-  height: 60px;
   padding: 10px;
 `;
 
@@ -61,21 +81,46 @@ const TypesContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  background-color: var(--mint);
+  margin-top: 40px;
+  height: 180px;
+  border-radius: 4px;
 `;
 
-const Type = styled(NavLink)`
-  background-color: black;
+const Type = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  height: 100px;
+  /* border: 3px solid white; */
+  background-color: var(--salmon);
+  border-radius: 4px;
+  &:hover {
+    border: 3px solid white;
+  }
+`;
+
+const TypeLink = styled(NavLink)`
   color: white;
   font-size: 30px;
   text-decoration: none;
   padding: 20px;
-  margin: 30px;
-  /* height: 100px; */
+  margin: 10px;
 
   &:hover {
     cursor: pointer;
+    color: var(--mint);
   }
+`;
+
+const Icon = styled.img`
+  width: 40px;
+  height: 40px;
+  padding-right: 12px;
+  align-self: center;
 `;
 
 export default Homepage;

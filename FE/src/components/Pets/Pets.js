@@ -3,8 +3,9 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import Loader from "../Loader";
 import { useEffect, useState } from "react";
+
+import Loader from "../Loader";
 
 const Pets = () => {
   const [pets, setPets] = useState([]);
@@ -36,7 +37,6 @@ const Pets = () => {
         <Type to="/pets/type/dog">Dogs</Type>
         <Type to="/pets">All Pets</Type>
       </TypesContainer> */}
-
       <PetsListContainer>
         {pets.map((p) => (
           <Pet key={p._id}>
@@ -104,6 +104,7 @@ const PetsListContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
+  margin: 10px;
 `;
 
 const Pet = styled.div``;

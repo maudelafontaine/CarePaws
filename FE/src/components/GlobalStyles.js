@@ -7,11 +7,16 @@ export default createGlobalStyle`
     --font-body: 'Kosugi', Arial, Helvetica, sans-serif;
     --padding-page: 24px;  */
 
-    --color-pink: #ffe6e6;
-    --color-grey: #f5f5f5;
-    --color-red: #ff6666;
-    --color-turquoise:#adebeb;
-    --color--purple:#993366;
+    --salmon: #FCB5AC;
+    --mauve: #B99095;
+    /* --mauve: #ceb5b7; */
+    /* --mint: #b5e5cf; */
+    --mint: #b5d6d6;
+    /* --mint: ##b5e5cf; */
+    --teal-green:#3D5B59;
+    --green: #89ab98;
+    --grey: #F7F5F2;
+
 
     --font-body:'Roboto', sans-serif;
   }
@@ -37,10 +42,12 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
       border: 0;
-      box-sizing: border-box;
-      vertical-align: baseline;
+      /* box-sizing: border-box;
+      vertical-align: baseline; */
       list-style-type: none;
       font-size: 20px ;
+      /* background-color: black; */
+      /* font-size:  ; */
     }
     /* HTML5 display-role reset for older browsers */
     article, aside, details, figcaption, figure,

@@ -19,6 +19,19 @@ export const AppProvider = ({ children }) => {
 
   // Comments section
   const [comments, setComments] = React.useState("");
+
+  const [pets, setPets] = React.useState([]);
+
+  // get all pets
+  React.useEffect(() => {
+    const getPets = async () => {
+      const res = await fetch("/pets");
+      const data = await res.json();
+      setPets(data.data);
+    };
+    getPets();
+  }, []);
+
   return (
     <AppContext.Provider
       value={{
@@ -34,7 +47,7 @@ export const AppProvider = ({ children }) => {
         setPostalCode,
         password,
         setPassword,
-        // pets,
+        pets,
         // setPets,
         cats,
         setCats,

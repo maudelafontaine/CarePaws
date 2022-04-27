@@ -14,12 +14,14 @@ import Dogs from "./Pets/Dogs";
 import SignUp from "./SignUp";
 import PetDetails from "./Pets/PetDetails";
 import Pets from "./Pets/Pets";
+import Banner from "./Banner";
 
 const App = () => {
   return (
     <Wrapper>
       <Router>
         <GlobalStyles />
+        <Banner />
         <Header />
         <Main>
           <Routes>

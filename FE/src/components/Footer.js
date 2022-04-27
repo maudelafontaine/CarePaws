@@ -16,6 +16,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  background-color: var(--mauve);
 `;
 
 const Logo = styled.h1``;

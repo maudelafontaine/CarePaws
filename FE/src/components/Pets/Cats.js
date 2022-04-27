@@ -22,7 +22,6 @@ const Cats = () => {
   const cats = pets.filter((pet) => {
     return pet.type === "cat";
   });
-  // console.log(cats);
 
   if (cats.length === 0) {
     return <Loader />;

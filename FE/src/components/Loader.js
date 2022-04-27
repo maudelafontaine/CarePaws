@@ -25,10 +25,10 @@ const Spinner = styled.div`
   /* margin-top: 200px; */
   border: 16px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid #ff9999;
-  border-bottom: 16px solid #adebeb;
-  border-left: 16px solid #ffe6e6;
-  border-right: 16px solid #ffe6e6;
+  border-top: 16px solid var(--mint);
+  border-bottom: 16px solid var(--salmon);
+  border-left: 16px solid var(--mauve);
+  border-right: 16px solid var(--mauve);
   width: 80px;
   height: 80px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
