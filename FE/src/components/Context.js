@@ -18,7 +18,7 @@ export const AppProvider = ({ children }) => {
   const [dogs, setDogs] = React.useState([]);
 
   // Comments section
-  const [comments, setComments] = React.useState("");
+  const [comment, setComment] = React.useState("");
 
   const [pets, setPets] = React.useState([]);
 
@@ -53,8 +53,8 @@ export const AppProvider = ({ children }) => {
         setCats,
         dogs,
         setDogs,
-        comments,
-        setComments,
+        comment,
+        setComment,
       }}
     >
       {children}

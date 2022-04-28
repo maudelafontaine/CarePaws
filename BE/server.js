@@ -3,7 +3,12 @@
 const express = require("express");
 // const { appendFile } = require("fs");
 const morgan = require("morgan");
-const { getPets, getPetById, getPetsByType } = require("./handlers");
+const {
+  getPets,
+  getPetById,
+  getPetsByType,
+  postComment,
+} = require("./handlers");
 
 const PORT = 8001;
 
@@ -29,5 +34,7 @@ app.use("/", express.static(__dirname + "/"));
 app.get("/pets", getPets);
 app.get("/pet/:_id", getPetById);
 app.get("/pets/:type", getPetsByType);
+
+app.post("/comment", postComment);
 
 app.listen(PORT, () => console.info(`Listening on port ${PORT}`));

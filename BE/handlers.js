@@ -5,6 +5,8 @@ require("dotenv").config();
 
 const { MONGO_URI } = process.env;
 
+const { v4: uuidv4 } = require("uuid");
+
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -20,6 +22,7 @@ const connectToMongo = async () => {
 
 // Handler functions :
 
+// Pets handlers
 // GET all pets
 const getPets = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
@@ -88,6 +91,42 @@ const getPetsByType = async (req, res) => {
   }
 };
 
+// Comments handlers
+// POST comment
+const postComment = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+
+  const userInput = req.body;
+
+  const comment = {
+    _id: uuidv4(),
+    comment: userInput.comment,
+  };
+
+  try {
+    await client.connect();
+    const db = client.db("PetFinder");
+    const result = await db.collection("comments").insertOne(comment);
+    res.status(200).json({
+      status: 200,
+      message: "Successfully created and added comment to db",
+      data: result,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 400,
+      message: "Cannot post comment",
+      data: result,
+    });
+  }
+};
+
+// GET all comments
+
+// GET comment by id
+
+// DELETE comment by id
+
 // form verification for
 // - when sign in
 // - when log in
@@ -97,4 +136,4 @@ const getPetsByType = async (req, res) => {
 // get pet by characteristics :color, type, breed, gender...
 //
 
-module.exports = { getPets, getPetById, getPetsByType };
+module.exports = { getPets, getPetById, getPetsByType, postComment };

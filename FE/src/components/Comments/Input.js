@@ -1,28 +1,40 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { AppContext } from "../Context";
 
 // *** add conditional rendering : if signed in -> show comment box, if not show message
 
 const Input = () => {
-  //   const [comment, setComment] = useState("");
-
-  const { comments, setComments } = useContext(AppContext);
+  const { comment, setComment } = useContext(AppContext);
 
   const handleChange = (e) => {
-    setComments(e.target.value);
+    setComment(e.target.value);
     console.log(e.target.value);
   };
 
-  const handleComment = (e) => {
-    console.log("clicked");
+  const handleComment = async (e) => {
+    // e.preventDefault();
+
+    let data = {
+      comment: comment,
+    };
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    };
+
+    const res = await fetch("/comment", requestOptions);
+    await res.json();
+    console.log("comment added to db");
   };
 
   return (
     <Container>
       <CommentInput
         placeholder="..."
-        value={comments}
+        value={comment}
         onChange={handleChange}
       ></CommentInput>
       <BtnContainer>
