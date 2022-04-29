@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppContext } from "../Context";
 
@@ -13,37 +13,45 @@ const Input = () => {
   };
 
   const handleComment = async (e) => {
-    // e.preventDefault();
-
-    let data = {
-      comment: comment,
-    };
+    e.preventDefault();
 
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ comment: comment }),
     };
 
     const res = await fetch("/comment", requestOptions);
     await res.json();
+    // setComment(comment);
     console.log("comment added to db");
   };
 
   return (
     <Container>
-      <CommentInput
-        placeholder="..."
-        value={comment}
-        onChange={handleChange}
-      ></CommentInput>
-      <BtnContainer>
-        <SendBtn onClick={handleComment}>Send</SendBtn>
-        <DeleteBtn>Delete</DeleteBtn>
-      </BtnContainer>
+      <Form onSubmit={handleComment}>
+        <CommentInput
+          placeholder="..."
+          value={comment}
+          onChange={handleChange}
+        ></CommentInput>
+        <BtnContainer>
+          <SendBtn type="submit">Send</SendBtn>
+          <DeleteBtn>Delete</DeleteBtn>
+        </BtnContainer>
+      </Form>
     </Container>
   );
 };
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Container = styled.div`
   display: flex;

@@ -34,7 +34,7 @@ const PetDetails = () => {
   }
 
   return (
-    <Container key={pet._id}>
+    <Container>
       <PictureContainer>
         <Picture src={pet.picture} />
         <Data style={{ fontSize: "28px" }}>{pet.name}</Data>
@@ -50,7 +50,7 @@ const PetDetails = () => {
           <Data>Coat: {pet.coat}</Data>
           <Section>Characteristics</Section>
           {pet.characteristics.map((c) => (
-            <Data key={pet.characteristics[c]}>{c}</Data>
+            <Data key={c}>{c}</Data>
           ))}
           <Section>Health</Section>
           <Data>Health: {pet.health}</Data>

@@ -20,6 +20,8 @@ export const AppProvider = ({ children }) => {
   // Comments section
   const [comment, setComment] = React.useState("");
 
+  const [comments, setComments] = React.useState([]);
+
   const [pets, setPets] = React.useState([]);
 
   // get all pets
@@ -55,6 +57,8 @@ export const AppProvider = ({ children }) => {
         setDogs,
         comment,
         setComment,
+        comments,
+        setComments,
       }}
     >
       {children}

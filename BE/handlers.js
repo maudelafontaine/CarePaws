@@ -98,7 +98,7 @@ const postComment = async (req, res) => {
 
   const userInput = req.body;
 
-  const comment = {
+  let comment = {
     _id: uuidv4(),
     comment: userInput.comment,
   };
@@ -123,6 +123,27 @@ const postComment = async (req, res) => {
 
 // GET all comments
 
+const getComments = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+
+  try {
+    await client.connect();
+    const db = client.db("PetFinder");
+    const result = await db.collection("comments").find().toArray();
+    res.status(200).json({
+      status: 200,
+      message: "Successfully retrieved comments",
+      data: result,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 400,
+      message: "Cannot retrieve comments",
+      result: data,
+    });
+  }
+};
+
 // GET comment by id
 
 // DELETE comment by id
@@ -136,4 +157,10 @@ const postComment = async (req, res) => {
 // get pet by characteristics :color, type, breed, gender...
 //
 
-module.exports = { getPets, getPetById, getPetsByType, postComment };
+module.exports = {
+  getPets,
+  getPetById,
+  getPetsByType,
+  postComment,
+  getComments,
+};
