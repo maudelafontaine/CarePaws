@@ -1,20 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { AppContext } from "../Context";
 
 // *** add conditional rendering : if signed in -> show comment box, if not show message
+// if signed in = user can delete his comment, else he cannot
 
 const Input = () => {
   const { comment, setComment } = useContext(AppContext);
-
+  // const { isDisabled, setIsDisabled } = useState(false);
   const handleChange = (e) => {
     setComment(e.target.value);
     console.log(e.target.value);
   };
 
   const handleComment = async (e) => {
-    e.preventDefault();
-
     const requestOptions = {
       method: "POST",
       headers: {
@@ -26,7 +25,6 @@ const Input = () => {
 
     const res = await fetch("/comment", requestOptions);
     await res.json();
-    // setComment(comment);
     console.log("comment added to db");
   };
 
@@ -34,12 +32,16 @@ const Input = () => {
     <Container>
       <Form onSubmit={handleComment}>
         <CommentInput
-          placeholder="..."
+          placeholder="Write your comment here"
           value={comment}
           onChange={handleChange}
         ></CommentInput>
         <BtnContainer>
-          <SendBtn type="submit">Send</SendBtn>
+          {comment.length === 0 ? (
+            <SendBtn disabled>Send</SendBtn>
+          ) : (
+            <SendBtn type="submit">Send</SendBtn>
+          )}
           <DeleteBtn>Delete</DeleteBtn>
         </BtnContainer>
       </Form>
@@ -57,31 +59,40 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 20px;
 `;
 
 const CommentInput = styled.input`
-  width: 400px;
-  height: 100px;
-  margin: 20px;
+  width: 500px;
+  height: 200px;
+  border: 2px solid black;
+  /* margin: 20px; */
 `;
 
 const BtnContainer = styled.div`
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  width: 100%;
+  width: 500px;
+  margin-top: 10px;
 `;
 
 const SendBtn = styled.button`
-  padding: 10px;
+  padding: 14px;
   width: 100px;
   color: black;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
 `;
 
 const DeleteBtn = styled.button`
-  padding: 10px;
+  padding: 14px;
   width: 100px;
   color: black;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
 `;
 
 export default Input;

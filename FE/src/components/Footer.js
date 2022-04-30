@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <Container>
       <Logo></Logo>
-      <Text>Find out more about Pets Happy Tails</Text>
+      {/* <Text>Find out more about Pets Happy Tails</Text> */}
       <Text>Made by @MaudeLafontaine</Text>
     </Container>
   );

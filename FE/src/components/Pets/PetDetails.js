@@ -121,8 +121,8 @@ const PictureContainer = styled.div`
 `;
 
 const Picture = styled.img`
-  height: 14%;
-  width: 14%;
+  height: 18%;
+  width: 18%;
   border-radius: 5px;
   padding: 10px;
 `;
@@ -142,6 +142,7 @@ const PetContainer = styled.div`
   background-color: white;
   border: 3px solid var(--mauve);
   margin-right: 100px;
+  margin-bottom: 100px;
 `;
 
 const Section = styled.h1`
