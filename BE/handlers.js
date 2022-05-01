@@ -148,14 +148,46 @@ const getComments = async (req, res) => {
 
 // DELETE comment by id
 
-// form verification for
-// - when sign in
-// - when log in
+// Sign up form handlers
 
-// get pets
-// get pet by id
-// get pet by characteristics :color, type, breed, gender...
-//
+// POST (add) new user
+const addUser = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+
+  const data = req.body;
+
+  const userDetails = {
+    _id: uuidv4(),
+    firstName: data.firstName,
+    lastName: data.lastName,
+    email: data.email,
+    country: data.country,
+    postalCode: data.postalCode,
+    password: data.password,
+  };
+
+  try {
+    await client.connect();
+    const db = client.db("PetFinder");
+    const result = await db.collection("users").insertOne(userDetails);
+    res.status(200).json({
+      status: 200,
+      message: "Successfully created new user",
+      data: result,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 400,
+      message: "Cannot add new user to db",
+      data: result,
+    });
+  }
+};
+
+// Sign in form handlers
+// GET all users
+
+// GET user by id
 
 module.exports = {
   getPets,
@@ -163,4 +195,5 @@ module.exports = {
   getPetsByType,
   postComment,
   getComments,
+  addUser,
 };

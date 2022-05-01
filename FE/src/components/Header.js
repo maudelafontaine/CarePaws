@@ -7,7 +7,7 @@ import { AppContext } from "./Context";
 import { IoPaw } from "react-icons/io5";
 
 const Header = () => {
-  const { pets } = useContext(AppContext);
+  // const { pets } = useContext(AppContext);
 
   const logoStyle = {
     fontSize: "48px",

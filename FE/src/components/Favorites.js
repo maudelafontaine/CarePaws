@@ -12,14 +12,15 @@ const Favorites = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
-  height: 200px;
+  height: 800px;
 `;
 
 const Text = styled.h1`
   color: black;
   font-size: 30px;
+  padding: 20px;
 `;
 
 export default Favorites;
