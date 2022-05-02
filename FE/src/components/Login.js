@@ -1,10 +1,32 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { AppContext } from "./Context";
 
 const Login = () => {
+  const { userId, setUserId, pw, setPw, setCurrentUser } =
+    useContext(AppContext);
+
+  let navigate = useNavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
+
+    fetch("/users")
+      .then((res) => res.json())
+      .then((data) => {
+        const findUser = data.data.find((user) => {
+          return (
+            user.email.toLowerCase() === userId.toLowerCase() &&
+            user.password === pw.toLowerCase()
+          );
+        });
+        if (findUser) {
+          navigate("/");
+          setCurrentUser(findUser);
+        }
+        console.log(findUser);
+      });
   };
 
   return (
@@ -12,11 +34,24 @@ const Login = () => {
       <Wrapper>
         <Title>Log in</Title>
         <Form onSubmit={handleLogin}>
-          <Input placeholder="Email" type="email"></Input>
-          <Input placeholder="Password" type="password"></Input>
+          <Input
+            placeholder="Email"
+            type="email"
+            // value={userId}
+            onChange={(e) => {
+              setUserId(e.target.value);
+            }}
+          ></Input>
+          <Input
+            placeholder="Password"
+            type="password"
+            // value={pw}
+            onChange={(e) => {
+              setPw(e.target.value);
+            }}
+          ></Input>
           <LogBtn type="submit">LOG IN</LogBtn>
         </Form>
-        {/* <Text>Forgot password?</Text> */}
         <Text>or log in with</Text>
         <GoogleBtn>Google</GoogleBtn>
         <Text style={{ padding: "30px" }}>

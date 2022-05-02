@@ -12,6 +12,7 @@ const {
   postComment,
   getComments,
   addUser,
+  getUsers,
 } = require("./handlers");
 
 const PORT = 8001;
@@ -47,6 +48,7 @@ app.post("/comment", postComment);
 app.get("/comments", getComments);
 
 // for users
-app.post("/users", addUser);
+app.post("/user", addUser);
+app.get("/users", getUsers);
 
 app.listen(PORT, () => console.info(`Listening on port ${PORT}`));

@@ -4,13 +4,18 @@ export const AppContext = React.createContext(null);
 
 export const AppProvider = ({ children }) => {
   // States :
-  // Sign in/ Log in form states
+  // Sign in
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [country, setCountry] = React.useState("");
   const [postalCode, setPostalCode] = React.useState("");
   const [password, setPassword] = React.useState();
+
+  // Log in
+  const [userId, setUserId] = React.useState("");
+  const [pw, setPw] = React.useState("");
+  const [currentUser, setCurrentUser] = React.useState("");
 
   // Pets
   // const [pets, setPets] = React.useState([]);
@@ -59,6 +64,12 @@ export const AppProvider = ({ children }) => {
         setComment,
         comments,
         setComments,
+        userId,
+        setUserId,
+        pw,
+        setPw,
+        currentUser,
+        setCurrentUser,
       }}
     >
       {children}

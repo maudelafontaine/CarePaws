@@ -7,7 +7,7 @@ import { AppContext } from "./Context";
 import { IoPaw } from "react-icons/io5";
 
 const Header = () => {
-  // const { pets } = useContext(AppContext);
+  const { currentUser } = useContext(AppContext);
 
   const logoStyle = {
     fontSize: "48px",
@@ -35,9 +35,13 @@ const Header = () => {
         </Link>
         <Line />
         <AccountContainer>
-          <Link to="/signup">
-            <Text>Sign Up</Text>
-          </Link>
+          {currentUser ? (
+            <Text>Hello, {currentUser.firstName}</Text>
+          ) : (
+            <Link to="/signup">
+              <Text>Sign Up</Text>
+            </Link>
+          )}
           <Link to="/login">
             <Text>Log In</Text>
           </Link>
@@ -76,6 +80,8 @@ const Wrapper = styled.div`
 const AccountContainer = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Text = styled.h2`

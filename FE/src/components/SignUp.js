@@ -36,7 +36,6 @@ const SignUp = () => {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    // e.target.value = "";
 
     let data = {
       firstName: firstName,
@@ -56,7 +55,7 @@ const SignUp = () => {
       body: JSON.stringify(data),
     };
 
-    const res = await fetch("/users", requestOptions);
+    const res = await fetch("/user", requestOptions);
     await res.json();
     console.log("user added to db");
     navigate("/");

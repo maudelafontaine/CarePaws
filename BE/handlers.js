@@ -89,6 +89,7 @@ const getPetsByType = async (req, res) => {
       data: result,
     });
   }
+  client.close();
 };
 
 // Comments handlers
@@ -119,6 +120,7 @@ const postComment = async (req, res) => {
       data: result,
     });
   }
+  client.close();
 };
 
 // GET all comments
@@ -142,6 +144,7 @@ const getComments = async (req, res) => {
       result: data,
     });
   }
+  client.close();
 };
 
 // GET comment by id
@@ -149,7 +152,6 @@ const getComments = async (req, res) => {
 // DELETE comment by id
 
 // Sign up form handlers
-
 // POST (add) new user
 const addUser = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
@@ -182,10 +184,32 @@ const addUser = async (req, res) => {
       data: result,
     });
   }
+  client.close();
 };
 
 // Sign in form handlers
 // GET all users
+const getUsers = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+
+  try {
+    await client.connect();
+    const db = client.db("PetFinder");
+    const result = await db.collection("users").find().toArray();
+    res.status(200).json({
+      status: 200,
+      message: "Successfully retrieved all users",
+      data: result,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 400,
+      message: "Cannot retrieve users",
+      data: result,
+    });
+  }
+  client.close();
+};
 
 // GET user by id
 
@@ -196,4 +220,5 @@ module.exports = {
   postComment,
   getComments,
   addUser,
+  getUsers,
 };
