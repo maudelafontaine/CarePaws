@@ -69,7 +69,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 600px;
+  height: 800px;
   background-color: var(--grey);
 `;
 
@@ -119,7 +119,7 @@ const LogBtn = styled.button`
 
   &:hover {
     cursor: pointer;
-    background-color: var(--mint);
+    background-color: var(--mauve);
   }
 `;
 

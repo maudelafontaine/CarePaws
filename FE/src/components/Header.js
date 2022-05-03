@@ -9,26 +9,13 @@ import { IoPaw } from "react-icons/io5";
 const Header = () => {
   const { currentUser, isSignedUp, firstName } = useContext(AppContext);
 
-  const logoStyle = {
-    // fontSize: "48px",
-    // marginLeft: "10px",
-    // marginRight: "20px",
-    // textDecoration: "none",
-    // color: "black",
-    // fontWeight: "bold",
-    // fontFamily: "'Roboto', sans-serif",
-    // display: flex,
-    // flexDirection: "row",
-    // fontSize: "100px",
-  };
-
   return (
     <Container>
       <LogoContainer>
         <Link to="/">
           <Logo>Pet finder</Logo>
         </Link>
-        <IoPaw style={{ color: "white", fontSize: "40px" }} />
+        <IoPaw style={{ color: "var(--mint)", fontSize: "60px" }} />
       </LogoContainer>
       {/* <SearchBar pets={pets} /> */}
       <Wrapper>
@@ -81,6 +68,7 @@ const LogoContainer = styled.div`
 
 const Link = styled(NavLink)`
   text-decoration: none;
+  font-size: 26px;
 `;
 const Logo = styled.h1`
   font-size: 45px;

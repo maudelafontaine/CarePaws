@@ -26,7 +26,7 @@ const CommentsSection = () => {
           <IoPaw size={34} style={{ margin: "20px" }} />
           <Text>
             Already have an account ?
-            <NavigationLink to="/signin">Sign In</NavigationLink>
+            <NavigationLink to="/login">Log In</NavigationLink>
           </Text>
           <Text>
             Don't have an account ?{" "}

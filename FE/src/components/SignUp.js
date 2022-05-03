@@ -133,7 +133,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 600px;
+  height: 800px;
   background-color: var(--grey);
 `;
 
@@ -186,7 +186,6 @@ const SubmitBtn = styled.button`
   width: 150px;
   margin-top: 25px;
   border-radius: 4px;
-  color: var(--mauve);
   background-color: white;
   font-weight: bold;
   align-self: center;
@@ -194,6 +193,7 @@ const SubmitBtn = styled.button`
 
   &:hover {
     cursor: pointer;
+    background-color: var(--mauve);
   }
 `;
 
