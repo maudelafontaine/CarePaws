@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { AppContext } from "./Context";
 
 const Login = () => {
-  const { userId, setUserId, pw, setPw, setCurrentUser } =
+  const { userId, setUserId, pw, setPw, setCurrentUser, firstName } =
     useContext(AppContext);
 
   let navigate = useNavigate();
@@ -18,14 +18,15 @@ const Login = () => {
         const findUser = data.data.find((user) => {
           return (
             user.email.toLowerCase() === userId.toLowerCase() &&
-            user.password === pw.toLowerCase()
+            user.password.toLowerCase() === pw.toLowerCase()
           );
         });
+        console.log(findUser);
         if (findUser) {
           navigate("/");
           setCurrentUser(findUser);
+          // firstName = userId;
         }
-        console.log(findUser);
       });
   };
 

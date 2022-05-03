@@ -1,6 +1,6 @@
 // sign up form
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { AppContext } from "./Context";
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,8 @@ const SignUp = () => {
   let navigate = useNavigate();
 
   const [val, setValue] = useState();
+
+  const { setIsSignedUp } = useContext(AppContext);
 
   const {
     firstName,
@@ -28,11 +30,6 @@ const SignUp = () => {
     password,
     setPassword,
   } = React.useContext(AppContext);
-
-  // const handleChange = (value, name) => {
-  //   setFormData({ ...formData, [name]: value });
-  //   setErrMessage("");
-  // };
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -59,6 +56,7 @@ const SignUp = () => {
     await res.json();
     console.log("user added to db");
     navigate("/");
+    setIsSignedUp(true);
   };
 
   return (

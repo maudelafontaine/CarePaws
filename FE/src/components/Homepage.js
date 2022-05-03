@@ -36,7 +36,7 @@ const Homepage = () => {
         </Type>
         <Type>
           <TypeLink to="/pets">
-            <Icon src="images/shelter_icon.png" />
+            <Icon src="images/pets_icon.png" />
             All Pets
           </TypeLink>
         </Type>
@@ -109,6 +109,10 @@ const TypeLink = styled(NavLink)`
   text-decoration: none;
   padding: 20px;
   margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 
   &:hover {
     cursor: pointer;

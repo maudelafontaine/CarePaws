@@ -17,6 +17,8 @@ export const AppProvider = ({ children }) => {
   const [pw, setPw] = React.useState("");
   const [currentUser, setCurrentUser] = React.useState("");
 
+  const [isSignedUp, setIsSignedUp] = React.useState(false);
+
   // Pets
   // const [pets, setPets] = React.useState([]);
   const [cats, setCats] = React.useState([]);
@@ -70,6 +72,8 @@ export const AppProvider = ({ children }) => {
         setPw,
         currentUser,
         setCurrentUser,
+        isSignedUp,
+        setIsSignedUp,
       }}
     >
       {children}

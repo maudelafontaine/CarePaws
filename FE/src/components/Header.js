@@ -7,25 +7,29 @@ import { AppContext } from "./Context";
 import { IoPaw } from "react-icons/io5";
 
 const Header = () => {
-  const { currentUser } = useContext(AppContext);
+  const { currentUser, isSignedUp, firstName } = useContext(AppContext);
 
   const logoStyle = {
-    fontSize: "48px",
-    marginLeft: "10px",
-    marginRight: "20px",
-    textDecoration: "none",
-    color: "black",
-    fontWeight: "bold",
-    fontFamily: "'Roboto', sans-serif",
+    // fontSize: "48px",
+    // marginLeft: "10px",
+    // marginRight: "20px",
+    // textDecoration: "none",
+    // color: "black",
+    // fontWeight: "bold",
+    // fontFamily: "'Roboto', sans-serif",
+    // display: flex,
+    // flexDirection: "row",
+    // fontSize: "100px",
   };
 
   return (
     <Container>
-      <Link to="/" style={logoStyle}>
-        <Logo>
-          Pet finder <IoPaw />
-        </Logo>
-      </Link>
+      <LogoContainer>
+        <Link to="/">
+          <Logo>Pet finder</Logo>
+        </Link>
+        <IoPaw style={{ color: "white", fontSize: "40px" }} />
+      </LogoContainer>
       {/* <SearchBar pets={pets} /> */}
       <Wrapper>
         <Link to="/favorites">
@@ -35,16 +39,24 @@ const Header = () => {
         </Link>
         <Line />
         <AccountContainer>
-          {currentUser ? (
-            <Text>Hello, {currentUser.firstName}</Text>
+          {currentUser || isSignedUp ? (
+            <Text style={{ color: "black" }}>
+              Hello, {firstName || currentUser.firstName}
+            </Text>
           ) : (
             <Link to="/signup">
               <Text>Sign Up</Text>
             </Link>
           )}
-          <Link to="/login">
-            <Text>Log In</Text>
-          </Link>
+          {currentUser || isSignedUp ? (
+            <Link to="/logout">
+              <Text>Log out</Text>
+            </Link>
+          ) : (
+            <Link to="/login">
+              <Text>Log In</Text>
+            </Link>
+          )}
         </AccountContainer>
       </Wrapper>
     </Container>
@@ -58,6 +70,13 @@ const Container = styled.div`
   align-items: center;
   height: 120px;
   background-color: var(--mauve);
+`;
+
+const LogoContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Link = styled(NavLink)`
@@ -86,7 +105,7 @@ const AccountContainer = styled.div`
 
 const Text = styled.h2`
   font-size: 26px;
-  padding: 10px;
+  padding: 20px;
 
   &:hover {
     color: var(--mint);
