@@ -2,11 +2,21 @@ import React, { useContext, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "./Context";
+import Loader from "./Loader";
 
 const Login = () => {
-  const { userId, setUserId, pw, setPw, setCurrentUser, firstName } =
-    useContext(AppContext);
+  const {
+    userId,
+    setUserId,
+    pw,
+    setPw,
+    setCurrentUser,
+    setIsLogedIn,
+    firstName,
+    setIsLoading,
+  } = useContext(AppContext);
 
+  const [status, setStatus] = useState("");
   let navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -15,6 +25,7 @@ const Login = () => {
     fetch("/users")
       .then((res) => res.json())
       .then((data) => {
+        console.log(data.data);
         const findUser = data.data.find((user) => {
           return (
             user.email.toLowerCase() === userId.toLowerCase() &&
@@ -25,7 +36,10 @@ const Login = () => {
         if (findUser) {
           navigate("/");
           setCurrentUser(findUser);
-          // firstName = userId;
+          setIsLogedIn(true);
+          setStatus("success!");
+        } else {
+          setStatus("error!");
         }
       });
   };
@@ -34,13 +48,14 @@ const Login = () => {
     <Container>
       <Wrapper>
         <Title>Log in</Title>
-        <Form onSubmit={handleLogin}>
+        <Form>
           <Input
             placeholder="Email"
             type="email"
             // value={userId}
             onChange={(e) => {
               setUserId(e.target.value);
+              console.log(e.target.value);
             }}
           ></Input>
           <Input
@@ -51,9 +66,18 @@ const Login = () => {
               setPw(e.target.value);
             }}
           ></Input>
-          <LogBtn type="submit">LOG IN</LogBtn>
+          {status ? (
+            <>
+              <LogBtn onClick={handleLogin}>LOG IN</LogBtn>
+              <ErrorMessage>
+                Please, verify your email and password.
+              </ErrorMessage>
+            </>
+          ) : (
+            <LogBtn onClick={handleLogin}>LOG IN</LogBtn>
+          )}
         </Form>
-        <Text>or log in with</Text>
+        <Text style={{ paddingTop: "30px" }}>or log in with</Text>
         <GoogleBtn>Google</GoogleBtn>
         <Text style={{ padding: "30px" }}>
           Need an account?
@@ -94,7 +118,7 @@ const Title = styled.h1`
   margin-bottom: 20px;
 `;
 
-const Form = styled.form`
+const Form = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -123,6 +147,10 @@ const LogBtn = styled.button`
   }
 `;
 
+const ErrorMessage = styled.h2`
+  color: black;
+`;
+
 const Text = styled.h3`
   color: black;
   padding: 10px;
@@ -132,6 +160,8 @@ const Text = styled.h3`
 const NavigationLink = styled(NavLink)`
   color: black;
   font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
 
   &:hover {
     cursor: pointer;

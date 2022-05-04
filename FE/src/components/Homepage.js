@@ -17,7 +17,9 @@ const Homepage = () => {
       <Bg src="/images/bg.jpg" />
       <TextContainer>
         <Text>Find your new bestfriend</Text>
-        <Text style={{ fontSize: "22px", padding: "20px" }}>
+        <Text
+          style={{ fontSize: "24px", padding: "20px", fontWeight: "normal" }}
+        >
           Select a category to get started.
         </Text>
       </TextContainer>

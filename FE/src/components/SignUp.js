@@ -200,6 +200,8 @@ const SubmitBtn = styled.button`
 const NavigationLink = styled(NavLink)`
   color: black;
   font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
 
   &:hover {
     cursor: pointer;

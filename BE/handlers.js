@@ -124,7 +124,6 @@ const postComment = async (req, res) => {
 };
 
 // GET all comments
-
 const getComments = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
 
@@ -212,6 +211,12 @@ const getUsers = async (req, res) => {
 };
 
 // GET user by id
+// const info = req.body;
+
+// const data = {
+//   email: info.email,
+//   password:
+// }
 
 module.exports = {
   getPets,

@@ -1,6 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
+/* To do's :
+- change photos and icons for hyperlinks
+- maude needs to link to github when clicked on
+
+*/
+
 const Footer = () => {
   return (
     <Container>

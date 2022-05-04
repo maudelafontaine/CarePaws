@@ -7,6 +7,7 @@ import ListingComments from "./ListingComments";
 
 import { IoPaw } from "react-icons/io5";
 
+// add scrowbar
 const CommentsSection = () => {
   const { currentUser } = useContext(AppContext);
 

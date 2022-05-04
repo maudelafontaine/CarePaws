@@ -1,13 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FiHeart } from "react-icons/fi";
+import { AiOutlineLogout } from "react-icons/ai";
+import { AiOutlineLogin } from "react-icons/ai";
 // import SearchBar from "./SearchOptions/SearchBar";
 import { AppContext } from "./Context";
 import { IoPaw } from "react-icons/io5";
 
 const Header = () => {
-  const { currentUser, isSignedUp, firstName } = useContext(AppContext);
+  const {
+    currentUser,
+    isSignedUp,
+    isLogedIn,
+    firstName,
+    setIsSignedUp,
+    setCurrentUser,
+    setIsLogedIn,
+  } = useContext(AppContext);
+  const [isLogedOut, setIsLogedOut] = useState(false);
+
+  // currentUser : if user logs in
+  // isSignedUp : if user signs up
+  //
+
+  let navigate = useNavigate();
+
+  const handleLogOut = () => {
+    if (isLogedIn) {
+      setIsSignedUp(false);
+      setCurrentUser("");
+      //
+      setIsLogedIn(false);
+      navigate("/");
+    }
+  };
 
   return (
     <Container>
@@ -17,18 +44,20 @@ const Header = () => {
         </Link>
         <IoPaw style={{ color: "var(--mint)", fontSize: "60px" }} />
       </LogoContainer>
-      {/* <SearchBar pets={pets} /> */}
       <Wrapper>
         <Link to="/favorites">
-          <Text style={{ padding: "10px" }}>
-            <FiHeart size={38} />
+          <Text style={{ padding: "20px" }}>
+            <FiHeart size={40} />
           </Text>
         </Link>
         <Line />
         <AccountContainer>
           {currentUser || isSignedUp ? (
             <Text style={{ color: "black" }}>
-              Hello, {firstName || currentUser.firstName}
+              Hello,{" "}
+              {firstName.charAt(0).toUpperCase() + firstName.slice(1) ||
+                currentUser.firstName.charAt(0).toUpperCase() +
+                  currentUser.firstName.slice(1)}
             </Text>
           ) : (
             <Link to="/signup">
@@ -36,13 +65,17 @@ const Header = () => {
             </Link>
           )}
           {currentUser || isSignedUp ? (
-            <Link to="/logout">
-              <Text>Log out</Text>
-            </Link>
+            <LogoutContainer>
+              <Btn onClick={handleLogOut}>Log out</Btn>
+              <AiOutlineLogout size={30} style={{ color: "white" }} />
+            </LogoutContainer>
           ) : (
-            <Link to="/login">
-              <Text>Log In</Text>
-            </Link>
+            <LoginContainer>
+              <Link to="/login">
+                <LoginText>Log In</LoginText>
+              </Link>
+              <AiOutlineLogin size={30} style={{ color: "white" }} />
+            </LoginContainer>
           )}
         </AccountContainer>
       </Wrapper>
@@ -68,7 +101,7 @@ const LogoContainer = styled.div`
 
 const Link = styled(NavLink)`
   text-decoration: none;
-  font-size: 26px;
+  /* font-size: 26px; */
 `;
 const Logo = styled.h1`
   font-size: 45px;
@@ -91,6 +124,25 @@ const AccountContainer = styled.div`
   align-items: center;
 `;
 
+const LoginContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+`;
+
+const LoginText = styled.h2`
+  font-size: 26px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 8px;
+
+  &:hover {
+    color: var(--mint);
+  }
+`;
+
 const Text = styled.h2`
   font-size: 26px;
   padding: 20px;
@@ -101,9 +153,31 @@ const Text = styled.h2`
 `;
 
 const Line = styled.div`
-  border-left: 2px solid grey;
+  border-left: 3px solid grey;
   height: 108px;
   padding: 6px;
+`;
+const LogoutContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+`;
+
+const Btn = styled.button`
+  font-size: 26px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 8px;
+  border: none;
+  background-color: var(--mauve);
+  font-weight: bold;
+
+  &:hover {
+    color: var(--mint);
+    cursor: pointer;
+  }
 `;
 
 export default Header;
