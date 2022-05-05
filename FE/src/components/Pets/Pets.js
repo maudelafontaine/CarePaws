@@ -1,6 +1,6 @@
 // list of pets
 
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";

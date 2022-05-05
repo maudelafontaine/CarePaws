@@ -4,7 +4,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { FiHeart } from "react-icons/fi";
 import { AiOutlineLogout } from "react-icons/ai";
 import { AiOutlineLogin } from "react-icons/ai";
-// import SearchBar from "./SearchOptions/SearchBar";
 import { AppContext } from "./Context";
 import { IoPaw } from "react-icons/io5";
 
@@ -13,23 +12,20 @@ const Header = () => {
     currentUser,
     isSignedUp,
     isLogedIn,
-    firstName,
     setIsSignedUp,
     setCurrentUser,
     setIsLogedIn,
   } = useContext(AppContext);
-  const [isLogedOut, setIsLogedOut] = useState(false);
 
   // currentUser : if user logs in
   // isSignedUp : if user signs up
-  //
 
   let navigate = useNavigate();
 
   const handleLogOut = () => {
     if (isLogedIn) {
-      setIsSignedUp(false);
-      setCurrentUser("");
+      setIsSignedUp(false); //SignUp
+      setCurrentUser(""); // LogIn
       //
       setIsLogedIn(false);
       navigate("/");
@@ -52,19 +48,18 @@ const Header = () => {
         </Link>
         <Line />
         <AccountContainer>
-          {currentUser || isSignedUp ? (
+          {isLogedIn || isSignedUp ? (
             <Text style={{ color: "black" }}>
               Hello,{" "}
-              {firstName.charAt(0).toUpperCase() + firstName.slice(1) ||
-                currentUser.firstName.charAt(0).toUpperCase() +
-                  currentUser.firstName.slice(1)}
+              {currentUser.firstName.charAt(0).toUpperCase() +
+                currentUser.firstName.slice(1)}
             </Text>
           ) : (
             <Link to="/signup">
               <Text>Sign Up</Text>
             </Link>
           )}
-          {currentUser || isSignedUp ? (
+          {isLogedIn || isSignedUp ? (
             <LogoutContainer>
               <Btn onClick={handleLogOut}>Log out</Btn>
               <AiOutlineLogout size={30} style={{ color: "white" }} />
@@ -181,3 +176,7 @@ const Btn = styled.button`
 `;
 
 export default Header;
+
+// {firstName.charAt(0).toUpperCase() + firstName.slice(1) ||
+// currentUser.firstName.charAt(0).toUpperCase() +
+// currentUser.firstName.slice(1)}

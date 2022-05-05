@@ -81,7 +81,7 @@ const PetDetails = () => {
             </Btn>
           </AdoptContainer>
           <OrganizationContainer>
-            <Section>Oganization</Section>
+            <Section style={{ textDecoration: "none" }}>Oganization</Section>
             <Data>
               <GoLocation /> {pet.organization}
             </Data>

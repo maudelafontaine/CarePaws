@@ -4,36 +4,34 @@ export const AppContext = React.createContext(null);
 
 export const AppProvider = ({ children }) => {
   // States :
-  // Sign in
+
+  // SignUp component
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [country, setCountry] = React.useState("");
   const [postalCode, setPostalCode] = React.useState("");
   const [password, setPassword] = React.useState();
+  const [isSignedUp, setIsSignedUp] = React.useState(false);
 
-  // Log in
-  const [userId, setUserId] = React.useState("");
+  // LogIn component
+  const [userId, setUserId] = React.useState(""); // the email would be used as the userId
   const [pw, setPw] = React.useState("");
   const [currentUser, setCurrentUser] = React.useState("");
-
-  const [isSignedUp, setIsSignedUp] = React.useState(false);
-  const [isLoading, setIsLoading] = React.useState(true);
   const [isLogedIn, setIsLogedIn] = React.useState(false);
 
-  // Pets
-  // const [pets, setPets] = React.useState([]);
-  const [cats, setCats] = React.useState([]);
-  const [dogs, setDogs] = React.useState([]);
+  // const [isLoading, setIsLoading] = React.useState(true);
 
   // Comments section
   const [comment, setComment] = React.useState("");
-
   const [comments, setComments] = React.useState([]);
 
-  const [pets, setPets] = React.useState([]);
+  // Pets
+  const [cats, setCats] = React.useState([]);
+  const [dogs, setDogs] = React.useState([]);
 
   // get all pets
+  const [pets, setPets] = React.useState([]);
   React.useEffect(() => {
     const getPets = async () => {
       const res = await fetch("/pets");
@@ -59,7 +57,6 @@ export const AppProvider = ({ children }) => {
         password,
         setPassword,
         pets,
-        // setPets,
         cats,
         setCats,
         dogs,
@@ -76,8 +73,8 @@ export const AppProvider = ({ children }) => {
         setCurrentUser,
         isSignedUp,
         setIsSignedUp,
-        isLoading,
-        setIsLoading,
+        // isLoading,
+        // setIsLoading,
         isLogedIn,
         setIsLogedIn,
       }}

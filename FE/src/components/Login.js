@@ -2,19 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "./Context";
-import Loader from "./Loader";
+// import Loader from "./Loader";
 
 const Login = () => {
-  const {
-    userId,
-    setUserId,
-    pw,
-    setPw,
-    setCurrentUser,
-    setIsLogedIn,
-    firstName,
-    setIsLoading,
-  } = useContext(AppContext);
+  const { userId, setUserId, pw, setPw, setCurrentUser, setIsLogedIn } =
+    useContext(AppContext);
 
   const [status, setStatus] = useState("");
   let navigate = useNavigate();
@@ -52,6 +44,7 @@ const Login = () => {
           <Input
             placeholder="Email"
             type="email"
+            required
             // value={userId}
             onChange={(e) => {
               setUserId(e.target.value);
@@ -61,6 +54,7 @@ const Login = () => {
           <Input
             placeholder="Password"
             type="password"
+            required
             // value={pw}
             onChange={(e) => {
               setPw(e.target.value);

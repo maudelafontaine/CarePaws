@@ -9,12 +9,12 @@ import { IoPaw } from "react-icons/io5";
 
 // add scrowbar
 const CommentsSection = () => {
-  const { currentUser } = useContext(AppContext);
+  const { isLogedIn, isSignedUp } = useContext(AppContext);
 
   return (
     <Container>
       <Title>Share you thoughts!</Title>
-      {currentUser ? (
+      {isLogedIn || isSignedUp ? (
         <Wrapper>
           <Input />
           <ListingComments />

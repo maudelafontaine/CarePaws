@@ -6,9 +6,11 @@ import { IoPaw } from "react-icons/io5";
 import moment from "moment";
 
 const ListingComments = () => {
-  const { comments, setComments } = useContext(AppContext);
+  const { comments, setComments, currentUser, firstName } =
+    useContext(AppContext);
 
   const date = moment().format("MMM Do YY");
+
   useEffect(() => {
     const getComments = async () => {
       const res = await fetch("/comments");
@@ -29,9 +31,10 @@ const ListingComments = () => {
               <Logo>
                 <IoPaw size={26} />
               </Logo>
-              <UserName></UserName>
+              <UserName>{firstName}</UserName>
               <Text> {c.comment}</Text>
               <Date>{date}</Date>
+              {currentUser ? <DeleteBtn>delete</DeleteBtn> : <></>}
             </CommentContainer>
           </Comment>
         ))}
@@ -45,7 +48,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   background-color: var(--grey);
+  /* overflow: scroll;
+  height: 700px;
+  width: 600px; */
 `;
 
 const Title = styled.h2`
@@ -56,10 +63,17 @@ const Title = styled.h2`
 `;
 
 const ListContainer = styled.div`
+  /* height: 100%;
+  width: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: var(--green);
+  /* overflow: scroll;
+  height: 700px;
+  width: 600px; */
+
   /* background-color: white; */
 `;
 
@@ -100,6 +114,10 @@ const Date = styled.h3`
 `;
 
 const UserName = styled.h3`
+  color: black;
+`;
+
+const DeleteBtn = styled.button`
   color: black;
 `;
 

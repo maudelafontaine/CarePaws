@@ -6,6 +6,7 @@ import { AppContext } from "./Context";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
+// To-do's :
 // if signup works -> redirect to hp and show message that it worked
 // else => show message saying it didn't work bc user already have account
 
@@ -14,7 +15,7 @@ const SignUp = () => {
 
   const [val, setValue] = useState();
 
-  const { setIsSignedUp } = useContext(AppContext);
+  const { setIsSignedUp, setCurrentUser } = useContext(AppContext);
 
   const {
     firstName,
@@ -56,6 +57,8 @@ const SignUp = () => {
     await res.json();
     console.log("user added to db");
     navigate("/");
+    setCurrentUser(data);
+    console.log(data);
     setIsSignedUp(true);
   };
 
@@ -72,6 +75,7 @@ const SignUp = () => {
         <InputsContainer>
           <Input
             placeholder="First name"
+            // required
             // value={value}
             value={val}
             onChange={(e) => {
@@ -80,6 +84,7 @@ const SignUp = () => {
           ></Input>
           <Input
             placeholder="Last Name"
+            // required
             value={val}
             onChange={(e) => {
               setLastName(e.target.value);
@@ -87,6 +92,7 @@ const SignUp = () => {
           ></Input>
           <Input
             placeholder="Country"
+            // required
             value={val}
             onChange={(e) => {
               setCountry(e.target.value);
@@ -94,6 +100,7 @@ const SignUp = () => {
           ></Input>
           <Input
             placeholder="Postal Code"
+            // required
             value={val}
             onChange={(e) => {
               setPostalCode(e.target.value);
@@ -101,6 +108,7 @@ const SignUp = () => {
           ></Input>
           <Input
             placeholder="Email"
+            // required
             type="email"
             value={val}
             onChange={(e) => {
@@ -109,6 +117,7 @@ const SignUp = () => {
           ></Input>
           <Input
             placeholder="Password"
+            // required
             type="password"
             value={val}
             onChange={(e) => {

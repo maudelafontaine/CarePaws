@@ -97,11 +97,12 @@ const getPetsByType = async (req, res) => {
 const postComment = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
 
-  const userInput = req.body;
+  const input = req.body;
 
   let comment = {
     _id: uuidv4(),
-    comment: userInput.comment,
+    comment: input.comment,
+    user: input.user,
   };
 
   try {

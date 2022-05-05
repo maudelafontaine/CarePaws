@@ -6,21 +6,28 @@ import { AppContext } from "../Context";
 // if signed in = user can delete his comment, else he cannot
 
 const Input = () => {
-  const { comment, setComment } = useContext(AppContext);
-  // const { isDisabled, setIsDisabled } = useState(false);
+  const { comment, setComment, currentUser } = useContext(AppContext);
+
+  const userId = currentUser.email;
+
   const handleChange = (e) => {
     setComment(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
 
   const handleComment = async (e) => {
+    let data = {
+      comment: comment,
+      user: userId,
+    };
+
     const requestOptions = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify({ comment: comment }),
+      body: JSON.stringify(data),
     };
 
     const res = await fetch("/comment", requestOptions);
@@ -34,6 +41,7 @@ const Input = () => {
         <CommentInput
           placeholder="Write your comment here"
           value={comment}
+          type="text"
           onChange={handleChange}
         ></CommentInput>
         <BtnContainer>
@@ -42,7 +50,7 @@ const Input = () => {
           ) : (
             <SendBtn type="submit">Send</SendBtn>
           )}
-          <DeleteBtn>Delete</DeleteBtn>
+          {/* <DeleteBtn>Delete</DeleteBtn> */}
         </BtnContainer>
       </Form>
     </Container>
@@ -62,10 +70,11 @@ const Container = styled.div`
   margin-right: 20px;
 `;
 
-const CommentInput = styled.input`
+const CommentInput = styled.textarea`
   width: 500px;
   height: 200px;
   border: 2px solid black;
+  color: black;
   /* margin: 20px; */
 `;
 
@@ -86,13 +95,13 @@ const SendBtn = styled.button`
   font-weight: bold;
 `;
 
-const DeleteBtn = styled.button`
-  padding: 14px;
-  width: 100px;
-  color: black;
-  border: none;
-  border-radius: 4px;
-  font-weight: bold;
-`;
+// const DeleteBtn = styled.button`
+//   padding: 14px;
+//   width: 100px;
+//   color: black;
+//   border: none;
+//   border-radius: 4px;
+//   font-weight: bold;
+// `;
 
 export default Input;
