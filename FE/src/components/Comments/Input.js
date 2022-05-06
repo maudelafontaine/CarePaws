@@ -7,6 +7,7 @@ import { AppContext } from "../Context";
 
 const Input = ({ getComments }) => {
   const { comment, setComment, currentUser } = useContext(AppContext);
+  const [val, setValue] = useState();
 
   const userId = currentUser.email;
 
@@ -43,7 +44,7 @@ const Input = ({ getComments }) => {
       <Form onSubmit={handleComment}>
         <CommentInput
           placeholder="Write your comment here"
-          value={comment}
+          value={val}
           type="text"
           onChange={handleChange}
         ></CommentInput>
@@ -51,7 +52,9 @@ const Input = ({ getComments }) => {
           {comment.length === 0 ? (
             <SendBtn disabled>Send</SendBtn>
           ) : (
-            <SendBtn type="submit">Send</SendBtn>
+            <SendBtn onClick={() => setValue(() => "")} type="submit">
+              Send
+            </SendBtn>
           )}
           {/* <DeleteBtn>Delete</DeleteBtn> */}
         </BtnContainer>
@@ -76,7 +79,7 @@ const Container = styled.div`
 const CommentInput = styled.textarea`
   width: 500px;
   height: 200px;
-  border: 2px solid black;
+  border: 4px solid var(--salmon);
   color: black;
   /* margin: 20px; */
 `;
@@ -96,6 +99,11 @@ const SendBtn = styled.button`
   border: none;
   border-radius: 4px;
   font-weight: bold;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--salmon);
+  }
 `;
 
 // const DeleteBtn = styled.button`

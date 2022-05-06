@@ -53,22 +53,22 @@ const PetDetails = () => {
             <Data key={c}>{c}</Data>
           ))}
           <Section>Health</Section>
-          <Data>Health: {pet.health}</Data>
+          <Data>{pet.health}.</Data>
           <Section>Friendliness</Section>
           {pet.good_with_dogs ? (
-            <Data>good with other dogs : Yes</Data>
+            <Data>Good with other dogs : Yes</Data>
           ) : (
-            <Data>good with other dogs : No</Data>
+            <Data>Good with other dogs : No</Data>
           )}
           {pet.good_with_cats ? (
-            <Data>good with other cats : Yes</Data>
+            <Data>Good with other cats : Yes</Data>
           ) : (
-            <Data>good with other cats : No</Data>
+            <Data>Good with other cats : No</Data>
           )}
           {pet.good_with_children ? (
-            <Data>good with children : Yes</Data>
+            <Data>Good with children : Yes</Data>
           ) : (
-            <Data>good with children : No</Data>
+            <Data>Good with children : No</Data>
           )}
         </PetContainer>
         <Wrapper>
@@ -82,13 +82,19 @@ const PetDetails = () => {
           </AdoptContainer>
           <OrganizationContainer>
             <Section style={{ textDecoration: "none" }}>Oganization</Section>
-            <Data>
-              <GoLocation /> {pet.organization}
-            </Data>
+            <NameContainer>
+              <Data>
+                <GoLocation size={22} /> {pet.organization}
+              </Data>
+            </NameContainer>
+
             <Data>{pet.location}</Data>
-            <Data>
-              <AiOutlineMail size={22} /> email
-            </Data>
+            <EmailContainer>
+              <Data>
+                <AiOutlineMail size={22} style={{ marginBottom: "-4px" }} />{" "}
+                email
+              </Data>
+            </EmailContainer>
             <Btn>More about us </Btn>
           </OrganizationContainer>
         </Wrapper>
@@ -131,6 +137,7 @@ const PetInfoContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: row;
+  align-items: center;
 `;
 
 const PetContainer = styled.div`
@@ -143,6 +150,7 @@ const PetContainer = styled.div`
   border: 3px solid var(--mauve);
   margin-right: 100px;
   margin-bottom: 100px;
+  width: 600px;
 `;
 
 const Section = styled.h1`
@@ -184,6 +192,24 @@ const OrganizationContainer = styled.div`
   width: 400px;
   padding: 20px;
 `;
+
+const NameContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  /* background-color: pink; */
+`;
+
+const EmailContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 150px;
+  /* background-color: pink; */
+`;
+
 const Data = styled.h2`
   color: black;
   padding: 10px;
