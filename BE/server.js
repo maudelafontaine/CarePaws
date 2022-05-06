@@ -11,6 +11,8 @@ const {
   getPetsByType,
   postComment,
   getComments,
+  getCommentById,
+  deleteComment,
   addUser,
   getUsers,
 } = require("./handlers");
@@ -46,6 +48,8 @@ app.get("/pets/:type", getPetsByType);
 // for comments
 app.post("/comment", postComment);
 app.get("/comments", getComments);
+app.get("/comment/:_id", getCommentById);
+app.delete("/comments/:_id", deleteComment);
 
 // for users
 app.post("/user", addUser);

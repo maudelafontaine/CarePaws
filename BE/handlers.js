@@ -150,28 +150,48 @@ const getComments = async (req, res) => {
 };
 
 // GET comment by id
+const getCommentById = async (req, res) => {
+  const _id = req.params._id;
+
+  const { db, client } = await connectToMongo();
+
+  await db.collection("comments").findOne({ _id }, (err, result) => {
+    result
+      ? res.status(200).json({
+          status: 200,
+          data: result,
+          message: `Successfully retrieved comment ${_id}`,
+        })
+      : res.status(404).json({
+          status: 404,
+          data: result,
+          message: `Cannot retrieve comment ${_id}`,
+        });
+    client.close();
+  });
+};
 
 // DELETE comment by id
 
 const deleteComment = async (req, res) => {
-  const client = new MongoClient(MONGO_URI, options);
+  const _id = req.params._id;
 
-  try {
-    await client.connect();
-    const db = client.db("PetFinder");
-    const result = await db.collection("comments").deleteOne();
-    res.status(200).json({
-      status: 200,
-      message: "Successfully deleted comment",
-      data: result,
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: 400,
-      message: "Cannot delete comment",
-      data: result,
-    });
-  }
+  const { db, client } = await connectToMongo();
+
+  await db.collection("comments").deleteOne({ _id }, (err, result) => {
+    result
+      ? res.status(200).json({
+          status: 200,
+          data: result,
+          message: `Successfully deleted comment ${_id}`,
+        })
+      : res.status(404).json({
+          status: 404,
+          data: result,
+          message: `Cannot delete comment ${_id}`,
+        });
+    client.close();
+  });
 };
 
 // Sign up form handlers
@@ -248,6 +268,7 @@ module.exports = {
   getPetsByType,
   postComment,
   getComments,
+  getCommentById,
   addUser,
   getUsers,
   deleteComment,
