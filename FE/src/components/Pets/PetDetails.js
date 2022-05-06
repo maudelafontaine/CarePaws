@@ -1,6 +1,6 @@
 // detailed page of pet
 
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";

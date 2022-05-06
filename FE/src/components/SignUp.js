@@ -32,6 +32,17 @@ const SignUp = () => {
     setPassword,
   } = React.useContext(AppContext);
 
+  // fetch("/users")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data.data);
+  //       const findUser = data.data.find((user) => {
+  //         return (
+  //           user.email.toLowerCase() === userId.toLowerCase() &&
+  //           user.password.toLowerCase() === pw.toLowerCase()
+  //         );
+  //       });
+
   const handleSignUp = async (e) => {
     e.preventDefault();
 
@@ -67,7 +78,7 @@ const SignUp = () => {
       <Form onSubmit={handleSignUp}>
         <Title>Sign Up</Title>
         <Text>
-          By signin up, I agree to the Pet Finder{" "}
+          By signing up, I agree to the Pet Finder{" "}
           <FakeLink>Privacy Policy</FakeLink>
           and
           <FakeLink>Terms of Service</FakeLink>.

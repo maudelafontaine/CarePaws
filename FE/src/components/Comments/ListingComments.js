@@ -5,19 +5,23 @@ import { AppContext } from "../Context";
 import { IoPaw } from "react-icons/io5";
 import moment from "moment";
 
-const ListingComments = () => {
-  const { comments, setComments, currentUser, firstName } =
-    useContext(AppContext);
+const ListingComments = ({ getComments }) => {
+  const { comments, currentUser, firstName } = useContext(AppContext);
 
   const date = moment().format("MMM Do YY");
 
+  const filteredComments = comments.filter((comment) => {
+    return comment.user === currentUser.email;
+  });
+  console.log(filteredComments);
+
   useEffect(() => {
-    const getComments = async () => {
-      const res = await fetch("/comments");
-      const data = await res.json();
-      console.log(data.data);
-      setComments(data.data);
-    };
+    // const getComments = async () => {
+    //   const res = await fetch("/comments");
+    //   const data = await res.json();
+    //   console.log(data.data);
+    //   setComments(data.data);
+    // };
     getComments();
   }, []);
 
@@ -31,10 +35,14 @@ const ListingComments = () => {
               <Logo>
                 <IoPaw size={26} />
               </Logo>
-              <UserName>{firstName}</UserName>
+              {/* <UserName>{firstName}</UserName> */}
               <Text> {c.comment}</Text>
               <Date>{date}</Date>
-              {currentUser ? <DeleteBtn>delete</DeleteBtn> : <></>}
+              {c.user === currentUser.email ? (
+                <DeleteBtn>delete</DeleteBtn>
+              ) : (
+                <></>
+              )}
             </CommentContainer>
           </Comment>
         ))}
@@ -113,9 +121,9 @@ const Date = styled.h3`
   margin-left: 15px;
 `;
 
-const UserName = styled.h3`
-  color: black;
-`;
+// const UserName = styled.h3`
+//   color: black;
+// `;
 
 const DeleteBtn = styled.button`
   color: black;

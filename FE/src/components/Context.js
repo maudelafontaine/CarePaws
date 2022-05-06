@@ -20,7 +20,9 @@ export const AppProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = React.useState("");
   const [isLogedIn, setIsLogedIn] = React.useState(false);
 
-  // const [isLoading, setIsLoading] = React.useState(true);
+  const [loading, setLoading] = React.useState(true);
+
+  //*** */ const [logout, setLogout]= React.useState(false);
 
   // Comments section
   const [comment, setComment] = React.useState("");
@@ -77,6 +79,8 @@ export const AppProvider = ({ children }) => {
         // setIsLoading,
         isLogedIn,
         setIsLogedIn,
+        loading,
+        setLoading,
       }}
     >
       {children}

@@ -9,15 +9,22 @@ import { IoPaw } from "react-icons/io5";
 
 // add scrowbar
 const CommentsSection = () => {
-  const { isLogedIn, isSignedUp } = useContext(AppContext);
+  const { isLogedIn, isSignedUp, setComments } = useContext(AppContext);
+
+  const getComments = async () => {
+    const res = await fetch("/comments");
+    const data = await res.json();
+    console.log(data.data);
+    setComments(data.data);
+  };
 
   return (
     <Container>
       <Title>Share you thoughts!</Title>
       {isLogedIn || isSignedUp ? (
         <Wrapper>
-          <Input />
-          <ListingComments />
+          <Input getComments={getComments} />
+          <ListingComments getComments={getComments} />
         </Wrapper>
       ) : (
         <TextContainer>

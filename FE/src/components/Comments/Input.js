@@ -5,7 +5,7 @@ import { AppContext } from "../Context";
 // *** add conditional rendering : if signed in -> show comment box, if not show message
 // if signed in = user can delete his comment, else he cannot
 
-const Input = () => {
+const Input = ({ getComments }) => {
   const { comment, setComment, currentUser } = useContext(AppContext);
 
   const userId = currentUser.email;
@@ -16,6 +16,8 @@ const Input = () => {
   };
 
   const handleComment = async (e) => {
+    e.preventDefault();
+
     let data = {
       comment: comment,
       user: userId,
@@ -33,6 +35,7 @@ const Input = () => {
     const res = await fetch("/comment", requestOptions);
     await res.json();
     console.log("comment added to db");
+    getComments();
   };
 
   return (
