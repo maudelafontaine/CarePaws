@@ -1,4 +1,4 @@
-﻿# Pet-finder app😻
+﻿# Pet-finder app ❤
 
 ## This app is about...
 
@@ -11,5 +11,3 @@ _italic_
 I used the `map` to find
 
 ## markdown language
-
-❤

@@ -37,10 +37,10 @@ const ListingComments = ({ getComments }) => {
                 <IoPaw size={26} />
               </Logo>
               <UserDataContainer>
-                <Handle>@{c.user}</Handle>
+                <Handle>@{c.user_name}</Handle>
                 <Text> {c.comment}</Text>
               </UserDataContainer>
-              {c.user === currentUser.email ? (
+              {c.user_email === currentUser.email ? (
                 <ButtonsContainer>
                   <DeleteBtn size={10} onClick={handleDelete}>
                     <FaTrashAlt />

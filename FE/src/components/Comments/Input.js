@@ -9,7 +9,9 @@ const Input = ({ getComments }) => {
   const { comment, setComment, currentUser } = useContext(AppContext);
   const [val, setValue] = useState();
 
-  const userId = currentUser.email;
+  const userId = currentUser._id;
+  const userEmail = currentUser.email;
+  const userName = currentUser.firstName;
 
   const handleChange = (e) => {
     setComment(e.target.value);
@@ -21,7 +23,9 @@ const Input = ({ getComments }) => {
 
     let data = {
       comment: comment,
-      user: userId,
+      user_id: userId,
+      user_email: userEmail,
+      user_name: userName,
     };
 
     const requestOptions = {

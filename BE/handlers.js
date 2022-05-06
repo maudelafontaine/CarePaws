@@ -102,7 +102,9 @@ const postComment = async (req, res) => {
   let comment = {
     _id: uuidv4(),
     comment: input.comment,
-    user: input.user,
+    user_id: input.user_id,
+    user_email: input.user_email,
+    user_name: input.user_name,
   };
 
   try {
@@ -150,6 +152,27 @@ const getComments = async (req, res) => {
 // GET comment by id
 
 // DELETE comment by id
+
+const deleteComment = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+
+  try {
+    await client.connect();
+    const db = client.db("PetFinder");
+    const result = await db.collection("comments").deleteOne();
+    res.status(200).json({
+      status: 200,
+      message: "Successfully deleted comment",
+      data: result,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 400,
+      message: "Cannot delete comment",
+      data: result,
+    });
+  }
+};
 
 // Sign up form handlers
 // POST (add) new user
@@ -227,4 +250,5 @@ module.exports = {
   getComments,
   addUser,
   getUsers,
+  deleteComment,
 };
