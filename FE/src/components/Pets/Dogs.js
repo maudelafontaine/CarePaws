@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { BiBone } from "react-icons/bi";
 
 import Loader from "../Loader";
 import { AppContext } from "../Context";
@@ -20,7 +21,18 @@ const Dogs = () => {
   }
   return (
     <Container>
-      <Text>Find the perfect companion</Text>
+      <Text>
+        Find the perfect dog
+        <BiBone
+          size={28}
+          style={{
+            marginBottom: "-5px",
+            // backgroundColor: "white",
+            paddingLeft: "4px",
+          }}
+        />
+      </Text>
+
       <DogsListContainer>
         {dogs.map((d) => (
           <Dog key={d._id}>
@@ -49,14 +61,22 @@ const Container = styled.div`
 
 const Text = styled.h1`
   color: black;
-  font-size: 26px;
-  padding: 30px;
+  font-size: 28px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: var(--mint);
+  border-radius: 20px;
 `;
 
 const DogsListContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
+  /* padding: 20px; */
 `;
 
 const Dog = styled.div``;
@@ -82,7 +102,6 @@ const Picture = styled.img`
   border-radius: 2px;
   margin-bottom: 20px;
   align-self: center;
-  /* border: 3px solid #ffe6e6; */
 
   &:hover {
     transform: scale(1.1);
@@ -92,14 +111,14 @@ const Picture = styled.img`
 
 const Name = styled.h1`
   color: black;
-  font-size: 18px;
+  font-size: 24px;
   margin-bottom: 8px;
   margin-top: 15px;
 `;
 
 const Breed = styled.h2`
   color: black;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: normal;
 `;
 

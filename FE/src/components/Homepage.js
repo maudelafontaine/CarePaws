@@ -86,7 +86,7 @@ const TypesContainer = styled.div`
   justify-content: space-between;
   background-color: var(--mint);
   margin-top: 40px;
-  height: 180px;
+  height: 200px;
   border-radius: 4px;
 `;
 
@@ -96,12 +96,15 @@ const Type = styled.div`
   align-items: center;
   justify-content: center;
   margin: 20px;
-  height: 100px;
-  /* border: 3px solid white; */
+  height: 120px;
+  width: 230px;
   background-color: var(--salmon);
+
   border-radius: 4px;
   &:hover {
-    border: 3px solid white;
+    color: white;
+    background-color: var(--salmon);
+    background-color: white;
   }
 `;
 
@@ -115,10 +118,12 @@ const TypeLink = styled(NavLink)`
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  color: black;
 
   &:hover {
     cursor: pointer;
-    color: var(--mint);
+    /* color: var(--mint); */
+    border-left: 5px solid var(--mint);
   }
 `;
 

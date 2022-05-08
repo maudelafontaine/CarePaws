@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { GiFishbone } from "react-icons/gi";
 
 import Loader from "../Loader";
 import { AppContext } from "../Context";
@@ -20,7 +21,17 @@ const Cats = () => {
   }
   return (
     <Container>
-      <Text>Find the perfect companion</Text>
+      <Text>
+        Find the perfect cat
+        <GiFishbone
+          size={26}
+          style={{
+            marginBottom: "-4px",
+            // backgroundColor: "white",
+            paddingLeft: "4px",
+          }}
+        />
+      </Text>
       <CatsListContainer>
         {cats.map((c) => (
           <Cat key={c._id}>
@@ -49,8 +60,15 @@ const Container = styled.div`
 
 const Text = styled.h1`
   color: black;
-  font-size: 26px;
-  padding: 30px;
+  font-size: 28px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: var(--mint);
+  border-radius: 20px;
 `;
 
 const CatsListContainer = styled.div`
@@ -71,8 +89,8 @@ const CatContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: white;
-  height: 400px;
-  width: 400px;
+  height: 90%;
+  width: 90%;
   border-radius: 4px;
   /* border: 4px solid var(--green); */
 `;
@@ -92,14 +110,14 @@ const Picture = styled.img`
 
 const Name = styled.h1`
   color: black;
-  font-size: 18px;
+  font-size: 24px;
   margin-bottom: 8px;
   margin-top: 15px;
 `;
 
 const Breed = styled.h2`
   color: black;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: normal;
 `;
 

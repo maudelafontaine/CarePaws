@@ -97,6 +97,10 @@ const LogoContainer = styled.div`
 const Link = styled(NavLink)`
   text-decoration: none;
   /* font-size: 26px; */
+
+  &:hover {
+    color: var(--salmon);
+  }
 `;
 const Logo = styled.h1`
   font-size: 45px;
@@ -124,6 +128,9 @@ const LoginContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  &:hover {
+    color: var(--salmon);
+  }
 `;
 
 const LoginText = styled.h2`
@@ -134,7 +141,7 @@ const LoginText = styled.h2`
   padding-right: 8px;
 
   &:hover {
-    color: var(--mint);
+    color: var(--salmon);
   }
 `;
 
@@ -143,7 +150,7 @@ const Text = styled.h2`
   padding: 20px;
 
   &:hover {
-    color: var(--mint);
+    color: var(--salmon);
   }
 `;
 
@@ -170,7 +177,7 @@ const Btn = styled.button`
   font-weight: bold;
 
   &:hover {
-    color: var(--mint);
+    color: var(--salmon);
     cursor: pointer;
   }
 `;

@@ -4,6 +4,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { FaHeart } from "react-icons/fa";
 
 import Loader from "../Loader";
 
@@ -29,9 +30,19 @@ const Pets = () => {
 
   return (
     <Container>
-      <TextContainer>
-        <Text>Find the perfect companion</Text>
-      </TextContainer>
+      {/* <TextContainer> */}
+      <Text>
+        Find the perfect companion
+        <FaHeart
+          size={26}
+          style={{
+            marginBottom: "-5px",
+            // backgroundColor: "white",
+            paddingLeft: "5px",
+          }}
+        />
+      </Text>
+      {/* </TextContainer> */}
       <PetsListContainer>
         {pets.map((p) => (
           <Pet key={p._id}>
@@ -53,36 +64,35 @@ const Container = styled.div`
   background-color: var(--grey);
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: center; */
-  height: 100%;
-`;
-const TextContainer = styled.div`
-  display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  /* width: 100%; */
-  padding: 20px;
-  height: 50px;
+  height: 100%;
 `;
+// const TextContainer = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: center;
+// `;
 
 const Text = styled.h2`
   color: black;
-  font-size: 26px;
-  height: 60px;
-  padding: 10px;
-  text-decoration: underline;
-  text-decoration-color: var(--green);
-  text-decoration-thickness: 4px;
+  font-size: 28px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: var(--mint);
+  border-radius: 20px;
 `;
 
 const PetsListContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  margin: 10px;
+  /* margin: 10px; */
 `;
 
 const Pet = styled.div``;
@@ -118,14 +128,14 @@ const Picture = styled.img`
 
 const Name = styled.h1`
   color: black;
-  font-size: 18px;
+  font-size: 24px;
   margin-bottom: 8px;
   margin-top: 15px;
 `;
 
 const Breed = styled.h2`
   color: black;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: normal;
 `;
 

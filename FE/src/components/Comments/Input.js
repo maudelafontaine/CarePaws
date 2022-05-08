@@ -60,7 +60,6 @@ const Input = ({ getComments }) => {
               Send
             </SendBtn>
           )}
-          {/* <DeleteBtn>Delete</DeleteBtn> */}
         </BtnContainer>
       </Form>
     </Container>
@@ -109,14 +108,5 @@ const SendBtn = styled.button`
     background-color: var(--salmon);
   }
 `;
-
-// const DeleteBtn = styled.button`
-//   padding: 14px;
-//   width: 100px;
-//   color: black;
-//   border: none;
-//   border-radius: 4px;
-//   font-weight: bold;
-// `;
 
 export default Input;

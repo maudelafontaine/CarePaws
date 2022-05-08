@@ -3,14 +3,11 @@ import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { AppContext } from "../Context";
 import { IoPaw } from "react-icons/io5";
-import moment from "moment";
 import { FaTrashAlt } from "react-icons/fa";
 import { AiOutlineEdit } from "react-icons/ai";
 
 const ListingComments = ({ getComments }) => {
   const { comments, currentUser } = useContext(AppContext);
-
-  // const date = moment().format("MMM Do YY");
 
   useEffect(() => {
     getComments();
@@ -138,7 +135,7 @@ const UserDataContainer = styled.div`
   /* background-color: pink; */
 `;
 
-const Text = styled.h2`
+const Text = styled.p`
   color: black;
   font-size: 22px;
   font-weight: normal;
@@ -146,7 +143,7 @@ const Text = styled.h2`
   padding: 5px;
 `;
 
-const Handle = styled.h3`
+const Handle = styled.p`
   color: black;
   font-size: 15px;
   font-weight: normal;
