@@ -17,8 +17,22 @@ const ListingComments = ({ getComments }) => {
   }, []);
 
   // Takes care of deleting the comment
-  const handleDelete = () => {
-    console.log("clicked poubelle");
+  const handleDelete = async (_id) => {
+    const requestOptions = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    };
+
+    const res = await fetch(`/comments/${_id}`, requestOptions);
+    const message = await res.json();
+
+    if (message.status === 200) {
+      getComments();
+    }
+    console.log("deleted!");
   };
 
   // Takes care of editing the comment
@@ -42,7 +56,12 @@ const ListingComments = ({ getComments }) => {
               </UserDataContainer>
               {c.user_email === currentUser.email ? (
                 <ButtonsContainer>
-                  <DeleteBtn size={10} onClick={handleDelete}>
+                  <DeleteBtn
+                    size={10}
+                    onClick={() => {
+                      handleDelete(c._id);
+                    }}
+                  >
                     <FaTrashAlt />
                   </DeleteBtn>
                   <EditBtn>
@@ -151,6 +170,7 @@ const DeleteBtn = styled.button`
 
   &:hover {
     cursor: pointer;
+    background-color: var(--green);
   }
 `;
 
@@ -163,6 +183,7 @@ const EditBtn = styled.button`
 
   &:hover {
     cursor: pointer;
+    background-color: var(--green);
   }
 `;
 
