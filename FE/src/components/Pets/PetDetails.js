@@ -39,6 +39,7 @@ const PetDetails = () => {
     let data = {
       user_id: userId,
       user_email: userEmail,
+      pet_id: pet._id,
       picture: pet.picture,
       name: pet.name,
       breed: pet.breed,

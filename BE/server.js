@@ -15,6 +15,8 @@ const {
   deleteComment,
   addUser,
   getUsers,
+  getFavoritePets,
+  addPetToFavorites,
 } = require("./handlers");
 
 const PORT = 8001;
@@ -46,8 +48,8 @@ app.get("/pet/:_id", getPetById);
 app.get("/pets/:type", getPetsByType);
 
 // for favorite pets
-// app.get("/favorites")
-// app.post("/favorite")
+app.get("/favorites", getFavoritePets);
+app.post("/favorite", addPetToFavorites);
 
 // for comments
 app.post("/comment", postComment);

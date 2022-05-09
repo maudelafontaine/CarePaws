@@ -33,6 +33,7 @@ const Container = styled.div`
   flex-direction: row;
   /* align-items: center; */
   justify-content: center;
+  width: 100%;
   height: 800px;
   background-color: var(--grey);
 `;
@@ -42,7 +43,7 @@ const Title = styled.h1`
   font-size: 30px;
   margin-top: 50px;
   padding: 10px;
-  background-color: pink;
+  /* background-color: pink; */
   width: 220px;
   height: 100px;
 `;

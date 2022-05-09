@@ -256,8 +256,62 @@ const getUsers = async (req, res) => {
 };
 
 // GET favorite pets
+const getFavoritePets = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+
+  try {
+    await client.connect();
+    const db = client.db("PetFinder");
+    const result = await db.collection("favorites").find().toArray();
+    res.status(200).json({
+      status: 200,
+      message: "Successfully retrieved favorite pets",
+      data: result,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 400,
+      message: "Cannot retrieve favorite pets",
+      result: data,
+    });
+  }
+  client.close();
+};
 
 // POST favorite pet
+const addPetToFavorites = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+
+  const data = req.body;
+
+  const favoritePetData = {
+    _id: uuidv4(),
+    user_id: data.user_id,
+    user_email: data.user_email,
+    pet_id: data.pet_id,
+    picture: data.picture,
+    name: data.name,
+    breed: data.breed,
+  };
+
+  try {
+    await client.connect();
+    const db = client.db("PetFinder");
+    const result = await db.collection("favorites").insertOne(favoritePetData);
+    res.status(200).json({
+      status: 200,
+      message: "Successfully added favorite pet to collection",
+      data: result,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 400,
+      message: "Cannot add favorite pet to collection",
+      data: result,
+    });
+  }
+  client.close();
+};
 
 module.exports = {
   getPets,
@@ -269,4 +323,6 @@ module.exports = {
   addUser,
   getUsers,
   deleteComment,
+  getFavoritePets,
+  addPetToFavorites,
 };
