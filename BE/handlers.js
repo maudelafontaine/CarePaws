@@ -172,7 +172,6 @@ const getCommentById = async (req, res) => {
 };
 
 // DELETE comment by id
-
 const deleteComment = async (req, res) => {
   const _id = req.params._id;
 
@@ -193,6 +192,8 @@ const deleteComment = async (req, res) => {
     client.close();
   });
 };
+
+// Modify comment (PUT)
 
 // Sign up form handlers
 // POST (add) new user
@@ -254,13 +255,9 @@ const getUsers = async (req, res) => {
   client.close();
 };
 
-// GET user by id
-// const info = req.body;
+// GET favorite pets
 
-// const data = {
-//   email: info.email,
-//   password:
-// }
+// POST favorite pet
 
 module.exports = {
   getPets,

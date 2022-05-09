@@ -9,13 +9,18 @@ import { FiHeart } from "react-icons/fi";
 import { GoLocation } from "react-icons/go";
 import { AiOutlineMail } from "react-icons/ai";
 import CommentsSection from "../Comments/CommentsSection";
+import { AppContext } from "../Context";
 
 // app.get("/pet/:_id", getPetById);
 
 const PetDetails = () => {
+  const { currentUser } = useContext(AppContext);
   const { _id } = useParams();
   const [pet, setPet] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+
+  const userId = currentUser._id;
+  const userEmail = currentUser.email;
 
   // get pet by _id
   useEffect(() => {
@@ -28,6 +33,30 @@ const PetDetails = () => {
     };
     findPet();
   }, [_id]);
+
+  // post favorite pet to db
+  const handleFavorite = async () => {
+    let data = {
+      user_id: userId,
+      user_email: userEmail,
+      picture: pet.picture,
+      name: pet.name,
+      breed: pet.breed,
+    };
+
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+
+    const res = await fetch("/favorite", requestOptions);
+    await res.json();
+    console.log("favorite pet added to db");
+  };
 
   if (isLoading) {
     return <Loader />;
@@ -76,9 +105,16 @@ const PetDetails = () => {
             <Text>Considering {pet.name} for adoption?</Text>
             <Btn>Start your inquiry</Btn>
             <Btn>Read FAQS</Btn>
-            <Btn>
-              <FiHeart size={20} /> FAVORITE
-            </Btn>
+            {currentUser ? (
+              <AddToFavoritesBtn onClick={handleFavorite}>
+                <FiHeart size={30} style={{ color: "var(--mint)" }} />{" "}
+              </AddToFavoritesBtn>
+            ) : (
+              <AddToFavoritesBtnDisabled disabled>
+                <FiHeart size={30} style={{ color: "var(--salmon)" }} />{" "}
+              </AddToFavoritesBtnDisabled>
+            )}
+            <FavoritesContainer></FavoritesContainer>
           </AdoptContainer>
           <OrganizationContainer>
             <Section style={{ textDecoration: "none" }}>Oganization</Section>
@@ -238,6 +274,35 @@ const Btn = styled.button`
     cursor: pointer;
     background-color: var(--green);
   }
+`;
+
+const FavoritesContainer = styled.div``;
+
+const AddToFavoritesBtn = styled.button`
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: none;
+  border-radius: 4px;
+  border: 3px solid var(--salmon);
+  margin-top: 10px;
+
+  &:hover {
+    cursor: pointer;
+    /* background-color: var(--sa); */
+  }
+`;
+
+const AddToFavoritesBtnDisabled = styled.button`
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: none;
+  border-radius: 4px;
+  border: 3px solid var(--salmon);
+  margin-top: 10px;
 `;
 
 export default PetDetails;

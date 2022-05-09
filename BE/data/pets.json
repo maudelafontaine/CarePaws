@@ -86,7 +86,7 @@
         "sex": "male",
         "age": "young",
         "coat": "long",
-        "characteristics" : ["palyful", "friendly", "curious"],
+        "characteristics" : ["playful", "friendly", "curious"],
         "good_with_dogs": true,
         "good_with_cats": true,
         "good_with_children": true,

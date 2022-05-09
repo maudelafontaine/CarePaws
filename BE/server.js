@@ -45,6 +45,10 @@ app.get("/pets", getPets);
 app.get("/pet/:_id", getPetById);
 app.get("/pets/:type", getPetsByType);
 
+// for favorite pets
+// app.get("/favorites")
+// app.post("/favorite")
+
 // for comments
 app.post("/comment", postComment);
 app.get("/comments", getComments);
