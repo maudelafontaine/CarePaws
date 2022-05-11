@@ -37,7 +37,7 @@ const Input = ({ getComments }) => {
       body: JSON.stringify(data),
     };
 
-    const res = await fetch("/comment", requestOptions);
+    const res = await fetch("/comment/:_id", requestOptions);
     await res.json();
     console.log("comment added to db");
     getComments();

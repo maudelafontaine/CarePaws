@@ -52,7 +52,7 @@ app.get("/favorites", getFavoritePets);
 app.post("/favorite", addPetToFavorites);
 
 // for comments
-app.post("/comment", postComment);
+app.post("/comment/:_id", postComment);
 app.get("/comments", getComments);
 app.get("/comment/:_id", getCommentById);
 app.delete("/comments/:_id", deleteComment);

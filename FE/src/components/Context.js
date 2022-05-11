@@ -1,9 +1,13 @@
 import React from "react";
+// import usePersistedState from "./hooks/use-persistedState";
 
 export const AppContext = React.createContext(null);
 
 export const AppProvider = ({ children }) => {
   // States :
+
+  // to save the currentUser in local storage
+  // const [user, setUser] = usePersistedState("user", currentUser);
 
   // SignUp component
   const [firstName, setFirstName] = React.useState("");

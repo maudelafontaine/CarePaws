@@ -46,6 +46,9 @@ const Header = () => {
             <FiHeart size={40} />
           </Text>
         </Link>
+        <Link to="/profile">
+          <Text style={{ padding: "20px" }}>Profile</Text>
+        </Link>
         <Line />
         <AccountContainer>
           {isLogedIn || isSignedUp ? (

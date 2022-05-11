@@ -15,6 +15,7 @@ import SignUp from "./SignUp";
 import PetDetails from "./Pets/PetDetails";
 import Pets from "./Pets/Pets";
 import Banner from "./Banner";
+import Profile from "./Profile";
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="favorites" element={<Favorites />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/pet/:_id" element={<PetDetails />} />
             <Route path="/pets" element={<Pets />} />
             <Route path="/pets/type/cat" element={<Cats />} />
@@ -55,3 +57,6 @@ const Main = styled.div`
   /* height: 900px; */
   background-color: white;
 `;
+
+// Notes :
+// https://www.robinwieruch.de/local-storage-react/ -> localstorage
