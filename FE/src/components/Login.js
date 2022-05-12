@@ -39,7 +39,7 @@ const Login = () => {
   return (
     <Container>
       <Wrapper>
-        <Title>Log in</Title>
+        <Title>Log In</Title>
         <Form>
           <Input
             placeholder="Email"
@@ -71,8 +71,8 @@ const Login = () => {
             <LogBtn onClick={handleLogin}>LOG IN</LogBtn>
           )}
         </Form>
-        <Text style={{ paddingTop: "30px" }}>or log in with</Text>
-        <GoogleBtn>Google</GoogleBtn>
+        {/* <Text style={{ paddingTop: "30px" }}>or log in with</Text>
+        <GoogleBtn>Google</GoogleBtn> */}
         <Text style={{ padding: "30px" }}>
           Need an account?
           <NavigationLink to="/signup">Sign Up</NavigationLink>
@@ -87,7 +87,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 800px;
+  height: 700px;
   background-color: var(--grey);
 `;
 
@@ -122,18 +122,20 @@ const Form = styled.div`
 
 const Input = styled.input`
   border: 2px solid black;
+  border-radius: 4px;
 `;
 
 const LogBtn = styled.button`
-  border: 2px solid black;
   color: black;
   font-weight: bold;
+  border: none;
   border-radius: 4px;
-  padding: 10px;
+  padding: 15px;
   margin-top: 12px;
   margin-bottom: 20px;
   font-size: 18px;
   /* width: 20%; */
+  background-color: white;
 
   &:hover {
     cursor: pointer;
@@ -162,19 +164,19 @@ const NavigationLink = styled(NavLink)`
   }
 `;
 
-const GoogleBtn = styled.button`
-  border: 2px solid black;
-  color: black;
-  font-weight: bold;
-  border-radius: 4px;
-  padding: 10px;
-  width: 20%;
-  font-size: 18px;
-  margin-bottom: 10px;
+// const GoogleBtn = styled.button`
+//   border: 2px solid black;
+//   color: black;
+//   font-weight: bold;
+//   border-radius: 4px;
+//   padding: 10px;
+//   width: 20%;
+//   font-size: 18px;
+//   margin-bottom: 10px;
 
-  &:hover {
-    cursor: pointer;
-  }
-`;
+//   &:hover {
+//     cursor: pointer;
+//   }
+// `;
 
 export default Login;

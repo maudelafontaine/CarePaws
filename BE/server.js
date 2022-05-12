@@ -17,6 +17,7 @@ const {
   getUsers,
   getFavoritePets,
   addPetToFavorites,
+  updateUser,
 } = require("./handlers");
 
 const PORT = 8001;
@@ -42,23 +43,27 @@ app.use(bodyParser.json());
 
 // List of endpoints
 
-// for pets
+// for pets in Cats, Dogs and Pets pages
 app.get("/pets", getPets);
 app.get("/pet/:_id", getPetById);
 app.get("/pets/:type", getPetsByType);
 
-// for favorite pets
+// for favorite pets page
 app.get("/favorites", getFavoritePets);
 app.post("/favorite", addPetToFavorites);
 
-// for comments
+// for comments section
 app.post("/comment/:_id", postComment);
 app.get("/comments", getComments);
 app.get("/comment/:_id", getCommentById);
 app.delete("/comments/:_id", deleteComment);
 
-// for users
+// for users when signing up/loging in
 app.post("/user", addUser);
 app.get("/users", getUsers);
+
+// for profile page
+// app.put("profile/:_id")
+app.put("/profile", updateUser);
 
 app.listen(PORT, () => console.info(`Listening on port ${PORT}`));

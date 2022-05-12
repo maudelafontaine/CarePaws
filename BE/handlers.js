@@ -193,8 +193,6 @@ const deleteComment = async (req, res) => {
   });
 };
 
-// Modify comment (PUT)
-
 // Sign up form handlers
 // POST (add) new user
 const addUser = async (req, res) => {
@@ -255,6 +253,7 @@ const getUsers = async (req, res) => {
   client.close();
 };
 
+// Favorite pets page handlers
 // GET favorite pets
 const getFavoritePets = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
@@ -313,6 +312,60 @@ const addPetToFavorites = async (req, res) => {
   client.close();
 };
 
+// Profile page handler
+
+// PUT (update) user personnal info
+const updateUser = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
+
+  //   const data = req.body;
+  //   const userId = data.user_id;
+
+  //   // const _id = req.params._id;
+
+  //   const newUserData = {
+  //     firstName: data.firstName,
+  //     lastName: data.lastName,
+  //     email: data.email,
+  //     country: data.country,
+  //     postalCode: data.postalCode,
+  //     password: data.password,
+  //   };
+
+  //   try {
+  //     await client.connect();
+  //     const db = client.db("PetFinder");
+  //     const collection = await db.collection("users");
+  //     // 1. find user by its _id (find the document)
+  //     const findUser = await collection.findOne(userId);
+
+  //     if (!findUser) {
+  //       res.status(404).json({
+  //         status: 404,
+  //         message: "Cannot find user",
+  //         data: findUser,
+  //       });
+  //     }
+
+  //     // 2. update the user data with the new values
+  //     const newValues = { $set: { newUserData } };
+  //     const result = await db.collection.updateOne({ _id: userId }, newValues);
+
+  //     res.status(200).json({
+  //       status: 200,
+  //       message: "Succesfully updated user's info",
+  //       data: result,
+  //     });
+  //   } catch (err) {
+  //     res.status(400).json({
+  //       status: 400,
+  //       message: "Cannot update user's info",
+  //       data: result,
+  //     });
+  //   }
+  //   client.close();
+};
+
 module.exports = {
   getPets,
   getPetById,
@@ -325,4 +378,5 @@ module.exports = {
   deleteComment,
   getFavoritePets,
   addPetToFavorites,
+  updateUser,
 };

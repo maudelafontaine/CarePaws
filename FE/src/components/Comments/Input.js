@@ -102,6 +102,7 @@ const SendBtn = styled.button`
   border: none;
   border-radius: 4px;
   font-weight: bold;
+  background-color: white;
 
   &:hover {
     cursor: pointer;

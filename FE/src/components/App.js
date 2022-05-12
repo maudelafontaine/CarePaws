@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 import About from "./About";
@@ -15,7 +15,8 @@ import SignUp from "./SignUp";
 import PetDetails from "./Pets/PetDetails";
 import Pets from "./Pets/Pets";
 import Banner from "./Banner";
-import Profile from "./Profile";
+import Profile from "./Profile/Profile";
+import EditProfile from "./Profile/EditProfile";
 
 const App = () => {
   return (
@@ -32,7 +33,8 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="favorites" element={<Favorites />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/my-profile" element={<Profile />} />
+            <Route path="/my-profile/edit" element={<EditProfile />} />
             <Route path="/pet/:_id" element={<PetDetails />} />
             <Route path="/pets" element={<Pets />} />
             <Route path="/pets/type/cat" element={<Cats />} />

@@ -32,11 +32,6 @@ const ListingComments = ({ getComments }) => {
     console.log("deleted!");
   };
 
-  // Takes care of editing the comment
-  const handleEdit = () => {
-    console.log("clicked edit");
-  };
-
   return (
     <Container>
       <Title>Comments</Title>
@@ -61,9 +56,6 @@ const ListingComments = ({ getComments }) => {
                   >
                     <FaTrashAlt />
                   </DeleteBtn>
-                  <EditBtn>
-                    <AiOutlineEdit size={20.1} onClick={handleEdit} />
-                  </EditBtn>
                 </ButtonsContainer>
               ) : (
                 <></>
@@ -159,19 +151,6 @@ const ButtonsContainer = styled.div`
 `;
 
 const DeleteBtn = styled.button`
-  color: black;
-  /* border: none; */
-  background-color: white;
-  padding: 5px;
-  margin: 5px;
-
-  &:hover {
-    cursor: pointer;
-    background-color: var(--green);
-  }
-`;
-
-const EditBtn = styled.button`
   color: black;
   /* border: none; */
   background-color: white;

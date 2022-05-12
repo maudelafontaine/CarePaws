@@ -78,7 +78,7 @@ const SignUp = () => {
       <Form onSubmit={handleSignUp}>
         <Title>Sign Up</Title>
         <Text>
-          By signing up, I agree to the Pet Finder{" "}
+          By signing up, I agree to the Pet Finder
           <FakeLink>Privacy Policy</FakeLink>
           and
           <FakeLink>Terms of Service</FakeLink>.
@@ -139,7 +139,7 @@ const SignUp = () => {
         <SubmitBtn onClick={() => setValue(() => "")} type="submit">
           Create Account
         </SubmitBtn>
-        <Text style={{ padding: "20px" }}>
+        <Text style={{ marginTop: "50px" }}>
           Aready have an account?
           <NavigationLink to="/login">Log in</NavigationLink>
         </Text>
@@ -153,7 +153,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 800px;
+  height: 700px;
   background-color: var(--grey);
 `;
 
@@ -164,17 +164,18 @@ const Title = styled.h1`
   padding: 20px;
   /* margin-top: 10px; */
   margin-bottom: 20px;
-  border-radius: 4px;
 `;
 
 const Text = styled.h2`
   color: black;
   font-weight: normal;
   padding-bottom: 20px;
+  font-size: 20px;
 `;
 
 const FakeLink = styled.a`
   cursor: default;
+  font-size: 20px;
 `;
 
 const Form = styled.form`
@@ -185,6 +186,7 @@ const Form = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 4px;
 `;
 
 const InputsContainer = styled.div`
@@ -197,11 +199,12 @@ const InputsContainer = styled.div`
 
 const Input = styled.input`
   color: black;
+  border-radius: 4px;
   border: 2px solid black;
 `;
 
 const SubmitBtn = styled.button`
-  border: 2px solid black;
+  /* border: 2px solid black; */
   color: black;
   width: 150px;
   margin-top: 25px;
@@ -209,7 +212,8 @@ const SubmitBtn = styled.button`
   background-color: white;
   font-weight: bold;
   align-self: center;
-  padding: 5px;
+  padding: 12px;
+  border: none;
 
   &:hover {
     cursor: pointer;
