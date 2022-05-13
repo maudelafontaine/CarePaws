@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "../Context";
 import Input from "./Input";
 import ListingComments from "./ListingComments";
-
 import { IoPaw } from "react-icons/io5";
 
 // add scrowbar

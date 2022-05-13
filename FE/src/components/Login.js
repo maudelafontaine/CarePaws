@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "./Context";
-// import Loader from "./Loader";
 
 const Login = () => {
   const { userId, setUserId, pw, setPw, setCurrentUser, setIsLogedIn } =

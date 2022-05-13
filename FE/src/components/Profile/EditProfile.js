@@ -82,13 +82,13 @@ const EditProfile = () => {
                 setNewPostalCode(e.target.value);
               }}
             ></Input>
-            {/* <Input
+            <Input
               placeholder="password"
               type="password"
               onChange={(e) => {
                 setNewPw(e.target.value);
               }}
-            ></Input> */}
+            ></Input>
             <UpdateBtn onClick={handleUpdate}>Update</UpdateBtn>
             {/* </InputsContainer> */}
             {/* </Form> */}

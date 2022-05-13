@@ -1,17 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import Loader from "./Loader";
-// import { FaPaw } from "react-icons/fa";
-// import { useEffect, useState } from "react";
 
 const Homepage = () => {
-  const [isLoading, setIsLoading] = React.useState(true);
-
-  if (!isLoading) {
-    return <Loader />;
-  }
-
   return (
     <Container>
       <Bg src="/images/bg.jpg" />

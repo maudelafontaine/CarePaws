@@ -4,14 +4,13 @@ import styled from "styled-components";
 import { AppContext } from "../Context";
 import { IoPaw } from "react-icons/io5";
 import { FaTrashAlt } from "react-icons/fa";
-import { AiOutlineEdit } from "react-icons/ai";
 
 const ListingComments = ({ getComments }) => {
   const { comments, currentUser } = useContext(AppContext);
 
   useEffect(() => {
     getComments();
-  }, []);
+  });
 
   // Takes care of deleting the comment
   const handleDelete = async (_id) => {

@@ -22,7 +22,7 @@ const Favorites = () => {
     };
     getFavPets();
     console.log(currentUser);
-  }, []);
+  }, [currentUser]);
 
   // filter pets to get the currentUser's favorite pets
   const filteredFavPets = favPets.filter((pet) => {

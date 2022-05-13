@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FiHeart } from "react-icons/fi";
 import { AiOutlineLogout } from "react-icons/ai";
 import { AiOutlineLogin } from "react-icons/ai";

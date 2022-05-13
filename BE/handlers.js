@@ -6,6 +6,7 @@ require("dotenv").config();
 const { MONGO_URI } = process.env;
 
 const { v4: uuidv4 } = require("uuid");
+const bcrypt = require("bcrypt");
 
 const options = {
   useNewUrlParser: true,
@@ -197,8 +198,10 @@ const deleteComment = async (req, res) => {
 // POST (add) new user
 const addUser = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
-
   const data = req.body;
+
+  const SALT_ROUND = 12;
+  const hashedPw = bcrypt.hashSync(data.password, SALT_ROUND);
 
   const userDetails = {
     _id: uuidv4(),
@@ -207,7 +210,7 @@ const addUser = async (req, res) => {
     email: data.email,
     country: data.country,
     postalCode: data.postalCode,
-    password: data.password,
+    password: hashedPw,
   };
 
   try {

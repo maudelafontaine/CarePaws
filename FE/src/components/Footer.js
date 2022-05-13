@@ -21,7 +21,6 @@ const Footer = () => {
             color: "black",
             textDecoration: "none",
             fontSize: "20px",
-            color: "var(--salmon",
           }}
         >
           Maude Lafontaine
