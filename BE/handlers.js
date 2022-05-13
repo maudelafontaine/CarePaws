@@ -318,52 +318,42 @@ const addPetToFavorites = async (req, res) => {
 const updateUser = async (req, res) => {
   const client = new MongoClient(MONGO_URI, options);
 
-  //   const data = req.body;
-  //   const userId = data.user_id;
+  const _id = req.params._id;
+  const data = req.body;
 
-  //   // const _id = req.params._id;
+  try {
+    await client.connect();
+    const db = client.db("PetFinder");
+    console.log("db found");
 
-  //   const newUserData = {
-  //     firstName: data.firstName,
-  //     lastName: data.lastName,
-  //     email: data.email,
-  //     country: data.country,
-  //     postalCode: data.postalCode,
-  //     password: data.password,
-  //   };
+    const newValues = {
+      $set: {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        country: data.country,
+        postalCode: data.postalCode,
+      },
+    };
+    console.log(newValues);
+    const result = await db
+      .collection("users")
+      .updateOne({ _id: _id }, newValues);
+    console.log(result);
 
-  //   try {
-  //     await client.connect();
-  //     const db = client.db("PetFinder");
-  //     const collection = await db.collection("users");
-  //     // 1. find user by its _id (find the document)
-  //     const findUser = await collection.findOne(userId);
-
-  //     if (!findUser) {
-  //       res.status(404).json({
-  //         status: 404,
-  //         message: "Cannot find user",
-  //         data: findUser,
-  //       });
-  //     }
-
-  //     // 2. update the user data with the new values
-  //     const newValues = { $set: { newUserData } };
-  //     const result = await db.collection.updateOne({ _id: userId }, newValues);
-
-  //     res.status(200).json({
-  //       status: 200,
-  //       message: "Succesfully updated user's info",
-  //       data: result,
-  //     });
-  //   } catch (err) {
-  //     res.status(400).json({
-  //       status: 400,
-  //       message: "Cannot update user's info",
-  //       data: result,
-  //     });
-  //   }
-  //   client.close();
+    res.status(200).json({
+      status: 200,
+      message: "Succesfully updated user's info",
+      data: result,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 400,
+      message: "Cannot update user's info",
+      data: result,
+    });
+  }
+  client.close();
 };
 
 module.exports = {
@@ -380,3 +370,6 @@ module.exports = {
   addPetToFavorites,
   updateUser,
 };
+
+// ROYD00082719;
+// 2024 / 08;

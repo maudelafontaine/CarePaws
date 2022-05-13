@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "../Context";
 
@@ -14,9 +15,10 @@ const EditProfile = () => {
   const [newPw, setNewPw] = useState("");
   const [isUpdated, setIsUpdated] = useState(false);
 
+  const { _id } = useParams();
   const handleUpdate = async () => {
     let data = {
-      user_id: currentUser._id,
+      // user_id: currentUser._id,
       firstName: newFirstName,
       lastName: newLastName,
       email: newEmail,
@@ -34,7 +36,7 @@ const EditProfile = () => {
       body: JSON.stringify(data),
     };
 
-    const res = await fetch("/profile", requestOptions);
+    const res = await fetch(`/user/${_id}`, requestOptions);
     await res.json();
     setIsUpdated(true);
     console.log("updated");
@@ -80,16 +82,23 @@ const EditProfile = () => {
                 setNewPostalCode(e.target.value);
               }}
             ></Input>
-            <Input
+            {/* <Input
               placeholder="password"
               type="password"
               onChange={(e) => {
                 setNewPw(e.target.value);
               }}
-            ></Input>
+            ></Input> */}
             <UpdateBtn onClick={handleUpdate}>Update</UpdateBtn>
             {/* </InputsContainer> */}
             {/* </Form> */}
+            {isUpdated === true ? (
+              // <TextContainer>
+              <Text>Your information have been successfully changed.</Text>
+            ) : (
+              // </TextContainer>
+              <Text style={{ backgroundColor: "var(--mint)" }}></Text>
+            )}
           </Wrapper>
         </Container>
       ) : (
@@ -164,4 +173,20 @@ const UpdateBtn = styled.button`
   }
 `;
 
+// const TextContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+// `;
+
+const Text = styled.h1`
+  background-color: white;
+  color: black;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: normal;
+  align-self: center;
+`;
 export default EditProfile;

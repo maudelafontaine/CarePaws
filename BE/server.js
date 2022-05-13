@@ -64,6 +64,6 @@ app.get("/users", getUsers);
 
 // for profile page
 // app.put("profile/:_id")
-app.put("/profile", updateUser);
+app.put("/user/:_id", updateUser);
 
 app.listen(PORT, () => console.info(`Listening on port ${PORT}`));

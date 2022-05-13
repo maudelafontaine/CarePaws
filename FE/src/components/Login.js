@@ -48,7 +48,6 @@ const Login = () => {
             // value={userId}
             onChange={(e) => {
               setUserId(e.target.value);
-              console.log(e.target.value);
             }}
           ></Input>
           <Input

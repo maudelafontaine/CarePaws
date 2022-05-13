@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { GiFishbone } from "react-icons/gi";
-
 import Loader from "../Loader";
 import { AppContext } from "../Context";
 
@@ -75,6 +74,7 @@ const CatsListContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
+  margin-bottom: 30px;
 `;
 
 const Cat = styled.div``;

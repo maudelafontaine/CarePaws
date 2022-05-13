@@ -61,19 +61,13 @@ const Pets = () => {
 };
 
 const Container = styled.div`
-  background-color: var(--grey);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
+  background-color: var(--grey);
 `;
-// const TextContainer = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   justify-content: center;
-// `;
 
 const Text = styled.h2`
   color: black;
@@ -92,7 +86,7 @@ const PetsListContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  /* margin: 10px; */
+  margin-bottom: 30px;
 `;
 
 const Pet = styled.div``;

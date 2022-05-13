@@ -27,7 +27,7 @@ const Profile = () => {
               {/* <Data>Password</Data> */}
             </DataContainer>
             <Line />
-            <NavigationLink to="/my-profile/edit">
+            <NavigationLink to={`/my-profile/${currentUser._id}/edit`}>
               <EditBtn>
                 Edit your information <AiOutlineEdit size={20.1} />
               </EditBtn>
@@ -36,7 +36,7 @@ const Profile = () => {
         </Container>
       ) : (
         <Container style={{ height: "600px" }}>
-          <Text>Please Sign Up/Log In</Text>
+          <Text style={{ margin: "40px" }}>Please Sign Up/Log In</Text>
         </Container>
       )}
     </>
@@ -89,7 +89,7 @@ const EditBtn = styled.button`
   color: black;
   font-size: 22px;
   background-color: white;
-  padding: 5px;
+  padding: 10px;
   margin: 5px;
   border: none;
   border-radius: 4px;
