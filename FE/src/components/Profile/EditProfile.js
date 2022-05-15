@@ -48,14 +48,16 @@ const EditProfile = () => {
         <Container>
           <Wrapper>
             <Title>Edit Profile</Title>
-            {/* <InputsContainer> */}
             <Line />
+            <Text style={{ marginTop: "10px", backgroundColor: "var(--mint)" }}>
+              * All fields are required
+            </Text>
             <Input
               placeholder="firstName"
               onChange={(e) => {
                 setNewdFirstName(e.target.value);
               }}
-              style={{ marginTop: "40px" }}
+              style={{ marginTop: "20px" }}
             ></Input>
             <Input
               placeholder="last name"
@@ -90,13 +92,10 @@ const EditProfile = () => {
               }}
             ></Input>
             <UpdateBtn onClick={handleUpdate}>Update</UpdateBtn>
-            {/* </InputsContainer> */}
-            {/* </Form> */}
             {isUpdated === true ? (
               // <TextContainer>
               <Text>Your information have been successfully changed.</Text>
             ) : (
-              // </TextContainer>
               <Text style={{ backgroundColor: "var(--mint)" }}></Text>
             )}
           </Wrapper>
@@ -123,6 +122,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 600px;
+  height: 100%;
   width: 400px;
   background-color: var(--mint);
 `;
@@ -137,7 +137,7 @@ const Title = styled.h1`
 const Line = styled.div`
   border-bottom: 5px solid white;
   width: 300px;
-  /* margin-top: 10px; */
+  margin-top: 10px;
 `;
 
 // const InputsContainer = styled.div`
@@ -173,20 +173,13 @@ const UpdateBtn = styled.button`
   }
 `;
 
-// const TextContainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-// `;
-
 const Text = styled.h1`
-  background-color: white;
+  background-color: var(--salmon);
   color: black;
   padding: 10px;
   margin-top: 10px;
   font-size: 18px;
-  font-weight: normal;
+  font-weight: bold;
   align-self: center;
 `;
 export default EditProfile;

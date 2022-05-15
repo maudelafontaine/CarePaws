@@ -19,8 +19,10 @@ const Profile = () => {
             <Text>Saved information</Text>
             <Line />
             <DataContainer>
-              <Data>{currentUser.firstName}</Data>
-              <Data>{currentUser.lastName}</Data>
+              <Data>
+                {currentUser.firstName} {currentUser.lastName}
+              </Data>
+
               <Data>{currentUser.email}</Data>
               <Data>{currentUser.country} </Data>
               <Data>{currentUser.postalCode}</Data>

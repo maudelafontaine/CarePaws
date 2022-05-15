@@ -18,7 +18,7 @@ const Footer = () => {
         <a
           href={myGithubUrl}
           style={{
-            color: "black",
+            color: "var(--salmon)",
             textDecoration: "none",
             fontSize: "20px",
           }}

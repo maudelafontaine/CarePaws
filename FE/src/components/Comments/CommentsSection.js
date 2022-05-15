@@ -19,7 +19,7 @@ const CommentsSection = () => {
 
   return (
     <Container>
-      <Title>Share you thoughts!</Title>
+      <Title>Share your thoughts on Pet Finder!</Title>
       {isLogedIn || isSignedUp ? (
         <Wrapper>
           <Input getComments={getComments} />
@@ -28,7 +28,7 @@ const CommentsSection = () => {
       ) : (
         <TextContainer>
           <Text style={{ fontSize: "22px" }}>
-            Please sign in to leave a comment.
+            Please Sign Up or Log In to leave a comment.
           </Text>
           <IoPaw size={34} style={{ margin: "20px" }} />
           <Text>
