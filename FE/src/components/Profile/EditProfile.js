@@ -1,9 +1,10 @@
+// Edit page for user to modify it's personal information
+
 import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "../Context";
 
-// edit current user personnal info
 const EditProfile = () => {
   const { currentUser } = useContext(AppContext);
 
@@ -16,9 +17,10 @@ const EditProfile = () => {
   const [isUpdated, setIsUpdated] = useState(false);
 
   const { _id } = useParams();
+
+  // Function to change user personnal information
   const handleUpdate = async () => {
     let data = {
-      // user_id: currentUser._id,
       firstName: newFirstName,
       lastName: newLastName,
       email: newEmail,
@@ -39,7 +41,6 @@ const EditProfile = () => {
     const res = await fetch(`/user/${_id}`, requestOptions);
     await res.json();
     setIsUpdated(true);
-    console.log("updated");
   };
 
   return (
@@ -93,7 +94,6 @@ const EditProfile = () => {
             ></Input>
             <UpdateBtn onClick={handleUpdate}>Update</UpdateBtn>
             {isUpdated === true ? (
-              // <TextContainer>
               <Text>Your information have been successfully changed.</Text>
             ) : (
               <Text style={{ backgroundColor: "var(--mint)" }}></Text>
@@ -139,18 +139,6 @@ const Line = styled.div`
   width: 300px;
   margin-top: 10px;
 `;
-
-// const InputsContainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   margin-top: 100px;
-//   margin: 40px;
-//   height: 600px;
-//   width: 400px;
-//   background-color: var(--mint);
-// `;
 
 const Input = styled.input`
   margin: 10px;

@@ -1,11 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-/* To do's :
-- change photos and icons for hyperlinks
-- maude needs to link to github when clicked on
-
-*/
 const myGithubUrl = "https://github.com/maudelafontaine";
 const photosUrl = "https://unsplash.com/";
 const iconsUrl = "https://icons8.com/";
@@ -62,7 +57,6 @@ const CreditsContainer = styled.div`
 `;
 
 const Text = styled.h2`
-  /* padding: 20px; */
   color: black;
   font-size: 20px;
   padding: 5px;

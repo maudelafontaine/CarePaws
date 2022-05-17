@@ -1,3 +1,5 @@
+// Favorite pets page
+
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
@@ -7,7 +9,6 @@ import Loader from "./Loader";
 const Favorites = () => {
   const { currentUser } = useContext(AppContext);
 
-  // states :
   const [favPets, setFavPets] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -16,20 +17,16 @@ const Favorites = () => {
     const getFavPets = async () => {
       const res = await fetch("/favorites");
       const data = await res.json();
-      console.log(data.data);
       setFavPets(data.data);
       setIsLoading(false);
     };
     getFavPets();
-    console.log(currentUser);
   }, [currentUser]);
 
   // filter pets to get the currentUser's favorite pets
   const filteredFavPets = favPets.filter((pet) => {
     return pet.user_id === currentUser._id;
   });
-
-  console.log(filteredFavPets);
 
   if (isLoading) {
     return <Loader />;

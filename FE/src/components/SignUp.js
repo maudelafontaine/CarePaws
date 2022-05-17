@@ -1,4 +1,4 @@
-// sign up form
+// Sign Up form
 
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
@@ -6,16 +6,10 @@ import { AppContext } from "./Context";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
-// To-do's :
-// if signup works -> redirect to hp and show message that it worked
-// else => show message saying it didn't work bc user already have account
-
 const SignUp = () => {
-  let navigate = useNavigate();
-
   const [val, setValue] = useState();
-
   const { setIsSignedUp, setCurrentUser } = useContext(AppContext);
+  let navigate = useNavigate();
 
   const {
     firstName,
@@ -32,17 +26,7 @@ const SignUp = () => {
     setPassword,
   } = React.useContext(AppContext);
 
-  // fetch("/users")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data.data);
-  //       const findUser = data.data.find((user) => {
-  //         return (
-  //           user.email.toLowerCase() === userId.toLowerCase() &&
-  //           user.password.toLowerCase() === pw.toLowerCase()
-  //         );
-  //       });
-
+  // Function that handles signing up to the app
   const handleSignUp = async (e) => {
     e.preventDefault();
 
@@ -66,10 +50,8 @@ const SignUp = () => {
 
     const res = await fetch("/user", requestOptions);
     await res.json();
-    console.log("user added to db");
     navigate("/");
     setCurrentUser(data);
-    console.log(data);
     setIsSignedUp(true);
   };
 
@@ -86,8 +68,6 @@ const SignUp = () => {
         <InputsContainer>
           <Input
             placeholder="First name"
-            // required
-            // value={value}
             value={val}
             onChange={(e) => {
               setFirstName(e.target.value);
@@ -95,7 +75,6 @@ const SignUp = () => {
           ></Input>
           <Input
             placeholder="Last Name"
-            // required
             value={val}
             onChange={(e) => {
               setLastName(e.target.value);
@@ -103,7 +82,6 @@ const SignUp = () => {
           ></Input>
           <Input
             placeholder="Country"
-            // required
             value={val}
             onChange={(e) => {
               setCountry(e.target.value);
@@ -111,7 +89,6 @@ const SignUp = () => {
           ></Input>
           <Input
             placeholder="Postal Code"
-            // required
             value={val}
             onChange={(e) => {
               setPostalCode(e.target.value);
@@ -119,7 +96,6 @@ const SignUp = () => {
           ></Input>
           <Input
             placeholder="Email"
-            // required
             type="email"
             value={val}
             onChange={(e) => {
@@ -128,7 +104,6 @@ const SignUp = () => {
           ></Input>
           <Input
             placeholder="Password"
-            // required
             type="password"
             value={val}
             onChange={(e) => {
@@ -162,7 +137,7 @@ const Title = styled.h1`
   font-size: 30px;
   color: black;
   padding: 20px;
-  /* margin-top: 10px; */
+
   margin-bottom: 20px;
 `;
 
@@ -204,7 +179,6 @@ const Input = styled.input`
 `;
 
 const SubmitBtn = styled.button`
-  /* border: 2px solid black; */
   color: black;
   width: 150px;
   margin-top: 25px;
@@ -233,12 +207,3 @@ const NavigationLink = styled(NavLink)`
 `;
 
 export default SignUp;
-
-// switch(value) {
-//   case "firstName":
-//     setFirstName(e.target.value);
-//     break;
-//   case "lastName":
-//     setLastName(e.target.value);
-
-// }

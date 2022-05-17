@@ -25,7 +25,6 @@ const PetDetails = () => {
     const findPet = async () => {
       const res = await fetch(`/pet/${_id}`);
       const data = await res.json();
-      console.log(data.data);
       setPet(data.data);
       setIsLoading(false);
     };
@@ -54,7 +53,6 @@ const PetDetails = () => {
 
     const res = await fetch("/favorite", requestOptions);
     await res.json();
-    console.log("favorite pet added to db");
   };
 
   if (isLoading) {

@@ -4,10 +4,10 @@ import React from "react";
 export const AppContext = React.createContext(null);
 
 export const AppProvider = ({ children }) => {
-  // States :
-
   // to save the currentUser in local storage
   // const [user, setUser] = usePersistedState("user", currentUser);
+
+  // States :
 
   // SignUp component
   const [firstName, setFirstName] = React.useState("");
@@ -24,9 +24,8 @@ export const AppProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = React.useState("");
   const [isLogedIn, setIsLogedIn] = React.useState(false);
 
+  // Loading
   const [loading, setLoading] = React.useState(true);
-
-  //*** */ const [logout, setLogout]= React.useState(false);
 
   // Comments section
   const [comment, setComment] = React.useState("");
@@ -36,7 +35,7 @@ export const AppProvider = ({ children }) => {
   const [cats, setCats] = React.useState([]);
   const [dogs, setDogs] = React.useState([]);
 
-  // get all pets
+  // Fetching all pets from Pet Finder
   const [pets, setPets] = React.useState([]);
   React.useEffect(() => {
     const getPets = async () => {
@@ -79,8 +78,6 @@ export const AppProvider = ({ children }) => {
         setCurrentUser,
         isSignedUp,
         setIsSignedUp,
-        // isLoading,
-        // setIsLoading,
         isLogedIn,
         setIsLogedIn,
         loading,

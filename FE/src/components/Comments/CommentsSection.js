@@ -14,7 +14,6 @@ const CommentsSection = () => {
   const getComments = async () => {
     const res = await fetch("/comments");
     const data = await res.json();
-    console.log(data.data);
     setComments(data.data);
   };
 

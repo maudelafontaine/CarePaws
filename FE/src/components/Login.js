@@ -1,3 +1,5 @@
+// Log In page
+
 import React, { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -10,20 +12,20 @@ const Login = () => {
   const [status, setStatus] = useState("");
   let navigate = useNavigate();
 
+  // Function that handles the logging in the app
   const handleLogin = (e) => {
     e.preventDefault();
 
     fetch("/users")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
         const findUser = data.data.find((user) => {
           return (
             user.email.toLowerCase() === userId.toLowerCase() &&
             user.password.toLowerCase() === pw.toLowerCase()
           );
         });
-        console.log(findUser);
+
         if (findUser) {
           navigate("/");
           setCurrentUser(findUser);
@@ -44,7 +46,6 @@ const Login = () => {
             placeholder="Email"
             type="email"
             required
-            // value={userId}
             onChange={(e) => {
               setUserId(e.target.value);
             }}
@@ -53,7 +54,6 @@ const Login = () => {
             placeholder="Password"
             type="password"
             required
-            // value={pw}
             onChange={(e) => {
               setPw(e.target.value);
             }}
@@ -97,7 +97,6 @@ const Wrapper = styled.div`
   align-items: center;
   width: 40%;
   border-radius: 4px;
-  /* border: 6px solid var(--mint); */
 `;
 
 const Title = styled.h1`
@@ -115,7 +114,6 @@ const Form = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: var(--mint); */
 `;
 
 const Input = styled.input`
@@ -132,7 +130,6 @@ const LogBtn = styled.button`
   margin-top: 12px;
   margin-bottom: 20px;
   font-size: 18px;
-  /* width: 20%; */
   background-color: white;
 
   &:hover {

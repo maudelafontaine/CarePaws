@@ -29,7 +29,6 @@ const ListingComments = ({ getComments }) => {
     if (message.status === 200) {
       getComments();
     }
-    console.log("deleted!");
   };
 
   return (

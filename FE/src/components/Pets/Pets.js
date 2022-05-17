@@ -16,7 +16,7 @@ const Pets = () => {
     const findPets = async () => {
       const res = await fetch("/pets");
       const data = await res.json();
-      console.log(data.data);
+
       setPets(data.data);
       setIsLoading(false);
     };

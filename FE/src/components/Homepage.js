@@ -41,7 +41,6 @@ const Homepage = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   height: 800px;
   background-color: var(--grey);
@@ -113,7 +112,6 @@ const TypeLink = styled(NavLink)`
 
   &:hover {
     cursor: pointer;
-    /* color: var(--mint); */
     border-left: 5px solid var(--mint);
   }
 `;

@@ -1,12 +1,11 @@
+// Profile page for current user to view it's personal info
+
 import React, { useContext } from "react";
 import styled from "styled-components";
-
 import { AiOutlineEdit } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import { AppContext } from "../Context";
-// list currentUser personnal info
 
-// need to link to EditProfile
 const Profile = () => {
   const { currentUser } = useContext(AppContext);
 
@@ -26,7 +25,6 @@ const Profile = () => {
               <Data>{currentUser.email}</Data>
               <Data>{currentUser.country} </Data>
               <Data>{currentUser.postalCode}</Data>
-              {/* <Data>Password</Data> */}
             </DataContainer>
             <Line />
             <NavigationLink to={`/my-profile/${currentUser._id}/edit`}>
@@ -101,8 +99,6 @@ const EditBtn = styled.button`
     background-color: var(--mauve);
   }
 `;
-
-// const Form = styled.form``;
 
 const DataContainer = styled.div`
   display: flex;

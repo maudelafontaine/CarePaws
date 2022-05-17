@@ -1,14 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
-import About from "./About";
 import Favorites from "./Favorites";
 import Footer from "./Footer";
 import GlobalStyles from "./GlobalStyles";
 import Header from "./Header";
 import Homepage from "./Homepage";
 import Login from "./Login";
-import Logout from "./Logout";
 import Cats from "./Pets/Cats";
 import Dogs from "./Pets/Dogs";
 import SignUp from "./SignUp";
@@ -17,6 +15,7 @@ import Pets from "./Pets/Pets";
 import Banner from "./Banner";
 import Profile from "./Profile/Profile";
 import EditProfile from "./Profile/EditProfile";
+import Logout from "./Logout";
 
 const App = () => {
   return (
@@ -28,7 +27,6 @@ const App = () => {
         <Main>
           <Routes>
             <Route path="/" element={<Homepage />} />
-            <Route path="about" element={<About />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
