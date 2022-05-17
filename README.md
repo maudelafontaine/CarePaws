@@ -1,4 +1,4 @@
-﻿# Pet Finder :dog::cat:
+﻿# Pet Finder:poodle::cat2:
 
 Pet finder is a web application that allows users to find adoptable pets that best matches their needs. From the comfort of their home, they can search available pets from a Montreal organizations and shelters database.
 
@@ -23,11 +23,13 @@ This application was inspired by [PetFinder](https://www.petfinder.com/), an onl
 
 ## Features
 
-As a guest, you can
+As a guest,
 
 - Create a Pet Finder account
 - Search for pet listings based on pet characteristics
   As a user, you can
+
+As a user,
 
 - Log into your Pet Finder account
 - Search for pet listings based on pet characteristics
@@ -41,7 +43,9 @@ As a guest, you can
 
 ### :notebook: User Stories
 
-The Trello board that I created to guide me throughout this project can be found [here](https://trello.com/b/EeAo7H0Q/pet-finder-app).
+I have created a [Trello Board](https://trello.com/b/EeAo7H0Q/pet-finder-app) to guide me throughout this project.
+
+![alt text](/FE/public/screenshots/Trello_board.PNG)
 
 ## :camera: Screenshots
 
@@ -69,3 +73,11 @@ Profile
 :books: Lessons learned:
 
 ## Next Steps
+
+The follows are the next steps in improving my application:
+
+- Filter pets even more by color, size, sex, coat type...
+- Include additional login such as Google
+- Save the current user in Local Storage
+- Make it mobile friendly
+- Hash users password

@@ -1,10 +1,10 @@
-// list of pets
+// list of all pets
+
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa";
-
 import Loader from "../Loader";
 
 const Pets = () => {
@@ -29,19 +29,16 @@ const Pets = () => {
 
   return (
     <Container>
-      {/* <TextContainer> */}
       <Text>
         Find the perfect companion
         <FaHeart
           size={26}
           style={{
             marginBottom: "-5px",
-            // backgroundColor: "white",
             paddingLeft: "5px",
           }}
         />
       </Text>
-      {/* </TextContainer> */}
       <PetsListContainer>
         {pets.map((p) => (
           <Pet key={p._id}>
@@ -111,7 +108,6 @@ const Picture = styled.img`
   border-radius: 2px;
   margin-bottom: 20px;
   align-self: center;
-  /* border: 3px solid #ffe6e6; */
 
   &:hover {
     transform: scale(1.2);

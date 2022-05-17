@@ -1,3 +1,5 @@
+// Cats list page
+
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
@@ -91,7 +93,6 @@ const CatContainer = styled.div`
   height: 90%;
   width: 90%;
   border-radius: 4px;
-  /* border: 4px solid var(--green); */
 `;
 
 const Picture = styled.img`

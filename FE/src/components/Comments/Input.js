@@ -1,3 +1,5 @@
+// Input to type your comment + post it
+
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { AppContext } from "../Context";
@@ -15,7 +17,6 @@ const Input = ({ getComments }) => {
 
   const handleChange = (e) => {
     setComment(e.target.value);
-    // console.log(e.target.value);
   };
 
   const handleComment = async (e) => {
@@ -84,7 +85,6 @@ const CommentInput = styled.textarea`
   height: 200px;
   border: 4px solid var(--salmon);
   color: black;
-  /* margin: 20px; */
 `;
 
 const BtnContainer = styled.div`

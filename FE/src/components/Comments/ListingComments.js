@@ -1,5 +1,5 @@
+// List of all comments
 import React, { useContext, useEffect } from "react";
-
 import styled from "styled-components";
 import { AppContext } from "../Context";
 import { IoPaw } from "react-icons/io5";
@@ -8,11 +8,12 @@ import { FaTrashAlt } from "react-icons/fa";
 const ListingComments = ({ getComments }) => {
   const { comments, currentUser } = useContext(AppContext);
 
+  // Get all comments
   useEffect(() => {
     getComments();
   });
 
-  // Takes care of deleting the comment
+  // Function used to delete a comment
   const handleDelete = async (_id) => {
     const requestOptions = {
       method: "DELETE",
@@ -68,15 +69,11 @@ const ListingComments = ({ getComments }) => {
 };
 
 const Container = styled.div`
-  /* margin: 50px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: var(--grey);
-  /* overflow: scroll;
-  height: 700px;
-  width: 600px; */
 `;
 
 const Title = styled.h2`
@@ -91,7 +88,6 @@ const ListContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: var(--green); */
 `;
 
 const Comment = styled.div``;
@@ -123,14 +119,12 @@ const UserDataContainer = styled.div`
   flex-direction: column;
   width: 250px;
   padding-left: 10px;
-  /* background-color: pink; */
 `;
 
 const Text = styled.p`
   color: black;
   font-size: 22px;
   font-weight: normal;
-  /* padding-left: 5px; */
   padding: 5px;
 `;
 
@@ -151,7 +145,6 @@ const ButtonsContainer = styled.div`
 
 const DeleteBtn = styled.button`
   color: black;
-  /* border: none; */
   background-color: white;
   padding: 5px;
   margin: 5px;

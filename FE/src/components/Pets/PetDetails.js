@@ -1,4 +1,4 @@
-// detailed page of pet
+// A detailed page for each pet
 
 import React, { useContext } from "react";
 import styled from "styled-components";
@@ -10,8 +10,6 @@ import { GoLocation } from "react-icons/go";
 import { AiOutlineMail } from "react-icons/ai";
 import CommentsSection from "../Comments/CommentsSection";
 import { AppContext } from "../Context";
-
-// app.get("/pet/:_id", getPetById);
 
 const PetDetails = () => {
   const { currentUser } = useContext(AppContext);

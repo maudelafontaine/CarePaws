@@ -1,3 +1,5 @@
+// Parent container for the Input.js and ListingComments.js
+
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
@@ -6,7 +8,6 @@ import Input from "./Input";
 import ListingComments from "./ListingComments";
 import { IoPaw } from "react-icons/io5";
 
-// add scrowbar
 const CommentsSection = () => {
   const { isLogedIn, isSignedUp, setComments } = useContext(AppContext);
 
@@ -54,9 +55,6 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  /* height: 100%;
-  width: 100%; */
-  /* margin-bottom: 50px; */
 `;
 
 const Title = styled.h1`
@@ -69,8 +67,6 @@ const Title = styled.h1`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  /* align-content: flex-start; */
-  /* align-items: center; */
 `;
 
 const TextContainer = styled.div`
