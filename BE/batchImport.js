@@ -1,4 +1,4 @@
-// import pets data in Mondb
+// import pets data in MongoDB
 
 const { MongoClient } = require("mongodb");
 const assert = require("assert");
@@ -20,14 +20,12 @@ const batchImport = async () => {
 
   try {
     await client.connect();
-    // console.log("connected");
     const db = client.db("PetFinder");
     await db.collection("pets").insertMany(pets);
   } catch (error) {
     console.log(error);
   }
   client.close();
-  //   console.log("success");
 };
 
 batchImport();
