@@ -36,7 +36,7 @@ const Header = () => {
     <Container>
       <LogoContainer>
         <Link to="/">
-          <Logo>Pet finder</Logo>
+          <Logo>CarePaws</Logo>
         </Link>
         <IoPaw style={{ color: "var(--mint)", fontSize: "60px" }} />
       </LogoContainer>
