@@ -1,4 +1,4 @@
-﻿# Pet Finder:poodle::cat2:
+﻿# CarePaws :poodle::cat2:
 
 CarePaws is a web application that allows users to find adoptable pets that best matches their needs. From the comfort of their home, they can search available pets from a Montreal organizations and shelters database.
 
@@ -85,9 +85,18 @@ Profile
 
 :purple_heart: Things I enjoyed:
 
+- Implementing new features in the frontend for the users
+- Working with CSS to design my application
+- Creating a database and importing the data in MongoDB
+
 :mount_fuji: Difficulties faced:
 
+- Working with Node.js
+- Deleting and updating a ressource from the server
+
 :books: Lessons learned:
+
+- Focus on the functionnalies needed to meet MVP's criterias before working on anything else.
 
 ## Next Steps
 
