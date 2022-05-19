@@ -96,7 +96,7 @@ Profile
 
 :books: Lessons learned:
 
-- Focus on the functionnalies needed to meet MVP's criterias before working on anything else.
+- Focus on the functionalities needed to meet MVP's criterias before working on anything else.
 
 ## Next Steps
 
