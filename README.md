@@ -14,6 +14,7 @@ This application was inspired by [PetFinder](https://www.petfinder.com/), an onl
 
 - HTML
 - CSS
+- Styled-components
 - Javascript
 - React
 - Node.js
