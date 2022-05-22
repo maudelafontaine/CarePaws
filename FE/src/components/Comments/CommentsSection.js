@@ -19,7 +19,7 @@ const CommentsSection = () => {
 
   return (
     <Container>
-      <Title>Share your thoughts on Pet Finder!</Title>
+      <Title>Share your thoughts on CarePaws!</Title>
       {isLogedIn || isSignedUp ? (
         <Wrapper>
           <Input getComments={getComments} />
